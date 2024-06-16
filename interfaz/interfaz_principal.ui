@@ -144,53 +144,6 @@ CLIENTES</string>
          </layout>
         </widget>
        </item>
-       <item row="0" column="0">
-        <widget class="QWidget" name="contenedor_logo" native="true">
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <property name="spacing">
-           <number>0</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="LOGO">
-            <property name="maximumSize">
-             <size>
-              <width>80</width>
-              <height>80</height>
-             </size>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="pixmap">
-             <pixmap>../images/taza.png</pixmap>
-            </property>
-            <property name="scaledContents">
-             <bool>true</bool>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label">
-            <property name="text">
-             <string>BLUM CAFE</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
        <item row="1" column="1">
         <widget class="QStackedWidget" name="stacked_widget">
          <property name="styleSheet">
@@ -431,7 +384,7 @@ border-color: rgb(0, 255, 238);
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>565</width>
+                <width>554</width>
                 <height>1524</height>
                </rect>
               </property>
@@ -470,7 +423,7 @@ QFrame{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>547</width>
+                    <width>536</width>
                     <height>210</height>
                    </rect>
                   </property>
@@ -666,7 +619,7 @@ QFrame{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>547</width>
+                    <width>536</width>
                     <height>210</height>
                    </rect>
                   </property>
@@ -850,7 +803,7 @@ QFrame{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>547</width>
+                    <width>536</width>
                     <height>210</height>
                    </rect>
                   </property>
@@ -868,7 +821,7 @@ QFrame{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>547</width>
+                    <width>536</width>
                     <height>210</height>
                    </rect>
                   </property>
@@ -889,7 +842,7 @@ QFrame{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>547</width>
+                    <width>536</width>
                     <height>210</height>
                    </rect>
                   </property>
@@ -907,7 +860,7 @@ QFrame{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>547</width>
+                    <width>536</width>
                     <height>210</height>
                    </rect>
                   </property>
@@ -925,7 +878,7 @@ QFrame{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>547</width>
+                    <width>536</width>
                     <height>210</height>
                    </rect>
                   </property>
@@ -939,6 +892,50 @@ QFrame{
            </item>
           </layout>
          </widget>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QWidget" name="contenedor_logo" native="true">
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="LOGO">
+            <property name="maximumSize">
+             <size>
+              <width>80</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>../redondo white.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>BLUM CAFE</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
