@@ -160,7 +160,7 @@ border-color: rgb(0, 255, 238);
 }</string>
          </property>
          <property name="currentIndex">
-          <number>3</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="widget_registrar_producto">
           <layout class="QVBoxLayout" name="verticalLayout_5">
