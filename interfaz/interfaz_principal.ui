@@ -27,7 +27,7 @@
 }
 
 #centralwidget{
-background: url(&quot;images/cafeteria.png&quot;);
+background: url(&quot;images/cafe.png&quot;);
 	
 }
 
@@ -74,17 +74,17 @@ background: url(&quot;images/cafeteria.png&quot;);
         <widget class="QWidget" name="widget_menu" native="true">
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="boton_v_facturar">
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="text">
-             <string>FACTURA</string>
+             <string>FACTURAR</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="boton_v_productos">
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
@@ -94,7 +94,18 @@ background: url(&quot;images/cafeteria.png&quot;);
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_3">
+           <widget class="QPushButton" name="boton_v_registrar_cliente">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>REGISTRAR
+CLIENTES</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="boton_v_registrar_producto">
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
@@ -105,12 +116,9 @@ PRODUCTOS</string>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_6">
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
+           <widget class="QPushButton" name="boton_v_editar_clientes">
             <property name="text">
-             <string>REGISTRAR
+             <string>EDITAR
 CLIENTES</string>
             </property>
            </widget>
@@ -144,6 +152,50 @@ CLIENTES</string>
          </layout>
         </widget>
        </item>
+       <item row="0" column="0">
+        <widget class="QWidget" name="contenedor_logo" native="true">
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="LOGO">
+            <property name="maximumSize">
+             <size>
+              <width>80</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>../images/redondo_white.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>BLUM CAFE</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
        <item row="1" column="1">
         <widget class="QStackedWidget" name="stacked_widget">
          <property name="styleSheet">
@@ -160,7 +212,7 @@ border-color: rgb(0, 255, 238);
 }</string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="widget_registrar_producto">
           <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -191,6 +243,45 @@ border-color: rgb(0, 255, 238);
                <property name="styleSheet">
                 <string notr="true">padding-right:25px;</string>
                </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="combo_categoria">
+               <item>
+                <property name="text">
+                 <string>CAFE</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>TE</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>CERVEZA</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>COMIDA</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>PASTELERIA</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>CHOCOLATE</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>MALTEADAS</string>
+                </property>
+               </item>
               </widget>
              </item>
              <item alignment="Qt::AlignmentFlag::AlignHCenter">
@@ -363,6 +454,80 @@ border-color: rgb(0, 255, 238);
            </item>
           </layout>
          </widget>
+         <widget class="QWidget" name="widget_actualizar_productos">
+          <layout class="QVBoxLayout" name="verticalLayout_16">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_9">
+             <item>
+              <widget class="QLineEdit" name="lineEdit">
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+               <property name="placeholderText">
+                <string>NOMBRE</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTextEdit" name="textEdit">
+               <property name="placeholderText">
+                <string>DESCRIPCION PRODUCTO</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+             </item>
+             <item>
+              <widget class="QComboBox" name="comboBox_3">
+               <item>
+                <property name="text">
+                 <string>CAFE</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>TE</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>CERVEZA</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>COMIDA</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>PASTELERIA</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>CHOCOLATE</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>MALTEADAS</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_3">
+               <property name="text">
+                <string>ACTUALIZAR</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
          <widget class="QWidget" name="widget_productos">
           <property name="styleSheet">
            <string notr="true">#scroll_principal,#scroll_widget{
@@ -384,7 +549,7 @@ border-color: rgb(0, 255, 238);
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>554</width>
+                <width>559</width>
                 <height>1524</height>
                </rect>
               </property>
@@ -415,6 +580,9 @@ QFrame{
                  <property name="styleSheet">
                   <string notr="true"/>
                  </property>
+                 <property name="verticalScrollBarPolicy">
+                  <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                 </property>
                  <property name="widgetResizable">
                   <bool>true</bool>
                  </property>
@@ -423,7 +591,7 @@ QFrame{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>536</width>
+                    <width>541</width>
                     <height>210</height>
                    </rect>
                   </property>
@@ -440,169 +608,31 @@ QFrame{
                    <property name="leftMargin">
                     <number>9</number>
                    </property>
-                   <item alignment="Qt::AlignmentFlag::AlignLeft">
-                    <widget class="QFrame" name="frame">
-                     <property name="styleSheet">
-                      <string notr="true"/>
+                   <item>
+                    <widget class="QTableWidget" name="tableWidget">
+                     <property name="showGrid">
+                      <bool>false</bool>
                      </property>
-                     <layout class="QHBoxLayout" name="horizontalLayout_10">
-                      <item>
-                       <widget class="QWidget" name="widget_2" native="true">
-                        <property name="styleSheet">
-                         <string notr="true"/>
-                        </property>
-                        <layout class="QVBoxLayout" name="verticalLayout_8">
-                         <item>
-                          <widget class="QLabel" name="label_3">
-                           <property name="maximumSize">
-                            <size>
-                             <width>80</width>
-                             <height>80</height>
-                            </size>
-                           </property>
-                           <property name="text">
-                            <string/>
-                           </property>
-                           <property name="pixmap">
-                            <pixmap>../images/cafe.png</pixmap>
-                           </property>
-                           <property name="scaledContents">
-                            <bool>true</bool>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="label_2">
-                           <property name="maximumSize">
-                            <size>
-                             <width>80</width>
-                             <height>80</height>
-                            </size>
-                           </property>
-                           <property name="text">
-                            <string>NOMBRE</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignmentFlag::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="label_4">
-                           <property name="text">
-                            <string>PRECIO</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignmentFlag::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QWidget" name="widget_3" native="true">
-                        <layout class="QVBoxLayout" name="verticalLayout_11">
-                         <item>
-                          <widget class="QLabel" name="label_11">
-                           <property name="maximumSize">
-                            <size>
-                             <width>80</width>
-                             <height>80</height>
-                            </size>
-                           </property>
-                           <property name="text">
-                            <string/>
-                           </property>
-                           <property name="pixmap">
-                            <pixmap>../images/cafe.png</pixmap>
-                           </property>
-                           <property name="scaledContents">
-                            <bool>true</bool>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="label_12">
-                           <property name="maximumSize">
-                            <size>
-                             <width>80</width>
-                             <height>80</height>
-                            </size>
-                           </property>
-                           <property name="text">
-                            <string>NOMBRE</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignmentFlag::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="label_13">
-                           <property name="text">
-                            <string>PRECIO</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignmentFlag::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QWidget" name="widget_4" native="true">
-                        <layout class="QVBoxLayout" name="verticalLayout_10">
-                         <item>
-                          <widget class="QLabel" name="label_8">
-                           <property name="maximumSize">
-                            <size>
-                             <width>80</width>
-                             <height>80</height>
-                            </size>
-                           </property>
-                           <property name="text">
-                            <string/>
-                           </property>
-                           <property name="pixmap">
-                            <pixmap>../images/cafe.png</pixmap>
-                           </property>
-                           <property name="scaledContents">
-                            <bool>true</bool>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="label_9">
-                           <property name="maximumSize">
-                            <size>
-                             <width>80</width>
-                             <height>80</height>
-                            </size>
-                           </property>
-                           <property name="text">
-                            <string>NOMBRE</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignmentFlag::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="label_10">
-                           <property name="text">
-                            <string>PRECIO</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignmentFlag::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                     </layout>
+                     <attribute name="horizontalHeaderVisible">
+                      <bool>false</bool>
+                     </attribute>
+                     <attribute name="horizontalHeaderMinimumSectionSize">
+                      <number>80</number>
+                     </attribute>
+                     <attribute name="horizontalHeaderDefaultSectionSize">
+                      <number>100</number>
+                     </attribute>
+                     <attribute name="horizontalHeaderStretchLastSection">
+                      <bool>false</bool>
+                     </attribute>
+                     <attribute name="verticalHeaderVisible">
+                      <bool>false</bool>
+                     </attribute>
+                     <row>
+                      <property name="text">
+                       <string>New Row</string>
+                      </property>
+                     </row>
                     </widget>
                    </item>
                   </layout>
@@ -611,6 +641,9 @@ QFrame{
                </item>
                <item>
                 <widget class="QScrollArea" name="scroll_te">
+                 <property name="verticalScrollBarPolicy">
+                  <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                 </property>
                  <property name="widgetResizable">
                   <bool>true</bool>
                  </property>
@@ -619,174 +652,17 @@ QFrame{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>536</width>
+                    <width>541</width>
                     <height>210</height>
                    </rect>
                   </property>
                   <layout class="QHBoxLayout" name="horizontalLayout_6">
                    <item alignment="Qt::AlignmentFlag::AlignLeft">
-                    <widget class="QFrame" name="frame_2">
+                    <widget class="QFrame" name="te">
                      <property name="styleSheet">
                       <string notr="true"/>
                      </property>
-                     <layout class="QHBoxLayout" name="horizontalLayout_11">
-                      <item>
-                       <widget class="QWidget" name="widget_5" native="true">
-                        <property name="styleSheet">
-                         <string notr="true"/>
-                        </property>
-                        <layout class="QVBoxLayout" name="verticalLayout_12">
-                         <item>
-                          <widget class="QLabel" name="label_14">
-                           <property name="maximumSize">
-                            <size>
-                             <width>80</width>
-                             <height>80</height>
-                            </size>
-                           </property>
-                           <property name="text">
-                            <string/>
-                           </property>
-                           <property name="pixmap">
-                            <pixmap>../images/te.png</pixmap>
-                           </property>
-                           <property name="scaledContents">
-                            <bool>true</bool>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="label_15">
-                           <property name="maximumSize">
-                            <size>
-                             <width>80</width>
-                             <height>80</height>
-                            </size>
-                           </property>
-                           <property name="text">
-                            <string>NOMBRE</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignmentFlag::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="label_16">
-                           <property name="text">
-                            <string>PRECIO</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignmentFlag::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QWidget" name="widget_6" native="true">
-                        <layout class="QVBoxLayout" name="verticalLayout_13">
-                         <item>
-                          <widget class="QLabel" name="label_17">
-                           <property name="maximumSize">
-                            <size>
-                             <width>80</width>
-                             <height>80</height>
-                            </size>
-                           </property>
-                           <property name="text">
-                            <string/>
-                           </property>
-                           <property name="pixmap">
-                            <pixmap>../images/te.png</pixmap>
-                           </property>
-                           <property name="scaledContents">
-                            <bool>true</bool>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="label_18">
-                           <property name="maximumSize">
-                            <size>
-                             <width>80</width>
-                             <height>80</height>
-                            </size>
-                           </property>
-                           <property name="text">
-                            <string>NOMBRE</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignmentFlag::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="label_19">
-                           <property name="text">
-                            <string>PRECIO</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignmentFlag::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QWidget" name="widget_7" native="true">
-                        <layout class="QVBoxLayout" name="verticalLayout_14">
-                         <item>
-                          <widget class="QLabel" name="label_20">
-                           <property name="maximumSize">
-                            <size>
-                             <width>80</width>
-                             <height>80</height>
-                            </size>
-                           </property>
-                           <property name="text">
-                            <string/>
-                           </property>
-                           <property name="pixmap">
-                            <pixmap>../images/te.png</pixmap>
-                           </property>
-                           <property name="scaledContents">
-                            <bool>true</bool>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="label_21">
-                           <property name="maximumSize">
-                            <size>
-                             <width>80</width>
-                             <height>80</height>
-                            </size>
-                           </property>
-                           <property name="text">
-                            <string>NOMBRE</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignmentFlag::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                         <item>
-                          <widget class="QLabel" name="label_22">
-                           <property name="text">
-                            <string>PRECIO</string>
-                           </property>
-                           <property name="alignment">
-                            <set>Qt::AlignmentFlag::AlignCenter</set>
-                           </property>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                      </item>
-                     </layout>
+                     <layout class="QHBoxLayout" name="layout_te"/>
                     </widget>
                    </item>
                   </layout>
@@ -795,6 +671,9 @@ QFrame{
                </item>
                <item>
                 <widget class="QScrollArea" name="scroll_malteada">
+                 <property name="verticalScrollBarPolicy">
+                  <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                 </property>
                  <property name="widgetResizable">
                   <bool>true</bool>
                  </property>
@@ -803,16 +682,28 @@ QFrame{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>536</width>
+                    <width>541</width>
                     <height>210</height>
                    </rect>
                   </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_5"/>
+                  <layout class="QHBoxLayout" name="horizontalLayout_5">
+                   <item alignment="Qt::AlignmentFlag::AlignLeft">
+                    <widget class="QFrame" name="malteada">
+                     <property name="styleSheet">
+                      <string notr="true"/>
+                     </property>
+                     <layout class="QHBoxLayout" name="layout_malteada"/>
+                    </widget>
+                   </item>
+                  </layout>
                  </widget>
                 </widget>
                </item>
                <item>
                 <widget class="QScrollArea" name="scroll_cerveza">
+                 <property name="verticalScrollBarPolicy">
+                  <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                 </property>
                  <property name="widgetResizable">
                   <bool>true</bool>
                  </property>
@@ -821,19 +712,31 @@ QFrame{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>536</width>
+                    <width>541</width>
                     <height>210</height>
                    </rect>
                   </property>
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_4"/>
+                  <layout class="QHBoxLayout" name="horizontalLayout_4">
+                   <item alignment="Qt::AlignmentFlag::AlignLeft">
+                    <widget class="QFrame" name="cerveza">
+                     <property name="styleSheet">
+                      <string notr="true"/>
+                     </property>
+                     <layout class="QHBoxLayout" name="layout_cerveza"/>
+                    </widget>
+                   </item>
+                  </layout>
                  </widget>
                 </widget>
                </item>
                <item>
                 <widget class="QScrollArea" name="scroll_pasteleria">
+                 <property name="verticalScrollBarPolicy">
+                  <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                 </property>
                  <property name="widgetResizable">
                   <bool>true</bool>
                  </property>
@@ -842,16 +745,28 @@ QFrame{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>536</width>
+                    <width>541</width>
                     <height>210</height>
                    </rect>
                   </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_3"/>
+                  <layout class="QHBoxLayout" name="horizontalLayout_3">
+                   <item alignment="Qt::AlignmentFlag::AlignLeft">
+                    <widget class="QFrame" name="pasteleria">
+                     <property name="styleSheet">
+                      <string notr="true"/>
+                     </property>
+                     <layout class="QHBoxLayout" name="layout_pasteleria"/>
+                    </widget>
+                   </item>
+                  </layout>
                  </widget>
                 </widget>
                </item>
                <item>
                 <widget class="QScrollArea" name="scroll_chocolate">
+                 <property name="verticalScrollBarPolicy">
+                  <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                 </property>
                  <property name="widgetResizable">
                   <bool>true</bool>
                  </property>
@@ -860,16 +775,28 @@ QFrame{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>536</width>
+                    <width>541</width>
                     <height>210</height>
                    </rect>
                   </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_8"/>
+                  <layout class="QHBoxLayout" name="horizontalLayout_8">
+                   <item alignment="Qt::AlignmentFlag::AlignLeft">
+                    <widget class="QFrame" name="chocolate">
+                     <property name="styleSheet">
+                      <string notr="true"/>
+                     </property>
+                     <layout class="QHBoxLayout" name="layout_chocolate"/>
+                    </widget>
+                   </item>
+                  </layout>
                  </widget>
                 </widget>
                </item>
                <item>
                 <widget class="QScrollArea" name="scroll_comida">
+                 <property name="verticalScrollBarPolicy">
+                  <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                 </property>
                  <property name="widgetResizable">
                   <bool>true</bool>
                  </property>
@@ -878,11 +805,20 @@ QFrame{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>536</width>
+                    <width>541</width>
                     <height>210</height>
                    </rect>
                   </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_9"/>
+                  <layout class="QHBoxLayout" name="horizontalLayout_9">
+                   <item alignment="Qt::AlignmentFlag::AlignLeft">
+                    <widget class="QFrame" name="comida">
+                     <property name="styleSheet">
+                      <string notr="true"/>
+                     </property>
+                     <layout class="QHBoxLayout" name="layout_comida"/>
+                    </widget>
+                   </item>
+                  </layout>
                  </widget>
                 </widget>
                </item>
@@ -894,71 +830,15 @@ QFrame{
          </widget>
         </widget>
        </item>
-       <item row="0" column="0">
-        <widget class="QWidget" name="contenedor_logo" native="true">
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="LOGO">
-            <property name="maximumSize">
-             <size>
-              <width>80</width>
-              <height>80</height>
-             </size>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="pixmap">
-             <pixmap>../redondo white.png</pixmap>
-            </property>
-            <property name="scaledContents">
-             <bool>true</bool>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label">
-            <property name="text">
-             <string>BLUM CAFE</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
       </layout>
      </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>33</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <tabstops>
-  <tabstop>pushButton</tabstop>
-  <tabstop>pushButton_2</tabstop>
-  <tabstop>pushButton_3</tabstop>
+  <tabstop>boton_v_facturar</tabstop>
+  <tabstop>boton_v_productos</tabstop>
   <tabstop>nacionalidad</tabstop>
   <tabstop>line_cedula</tabstop>
   <tabstop>line_nombre</tabstop>
