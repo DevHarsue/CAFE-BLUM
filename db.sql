@@ -12,6 +12,7 @@ USE `cafe_blum`;
 
 CREATE TABLE IF NOT EXISTS `clientes` (
   `cliente_id` int(11) NOT NULL AUTO_INCREMENT,
+  `cliente_nacionalidad` varchar(1) NOT NULL,
   `cliente_cedula` int(11) NOT NULL,
   `cliente_nombre` varchar(20) NOT NULL,
   `cliente_apellido` varchar(20) DEFAULT NULL,
@@ -50,30 +51,42 @@ CREATE TABLE IF NOT EXISTS `factura_detalles` (
 
 CREATE TABLE IF NOT EXISTS `productos` (
   `producto_id` int(11) NOT NULL AUTO_INCREMENT,
-  `producto_nombre` varchar(20) NOT NULL DEFAULT '0',
-  `producto_descripcion` varchar(100) NOT NULL DEFAULT '0',
-  `producto_precio` decimal(20,2) NOT NULL DEFAULT 0.00,
+  `producto_nombre` varchar(20) NOT NULL,
+  `producto_descripcion` varchar(100) NOT NULL,
+  `producto_precio` decimal(20,2) NOT NULL,
+  `producto_categoria` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`producto_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-CREATE TABLE IF NOT EXISTS `roles` (
-  `rol_id` int(11) NOT NULL,
-  `rol_nombre` int(11) NOT NULL,
-  `rol_cambiar_productos` int(11) NOT NULL,
-  `rol_eliminar_clientes` int(11) NOT NULL,
-  `rol_configuraciones` int(11) NOT NULL,
-  PRIMARY KEY (`rol_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci COMMENT='roles';
+CREATE TABLE IF NOT EXISTS `totales_diarios` (
+  `total_id` int(11) NOT NULL AUTO_INCREMENT,
+  `total_fecha` date NOT NULL,
+  `divisa_id` int(11) NOT NULL,
+  `total_ingresado` int(11) NOT NULL,
+  PRIMARY KEY (`total_id`),
+  KEY `FK_totales_diaros_divisas` (`divisa_id`),
+  CONSTRAINT `FK_totales_diaros_divisas` FOREIGN KEY (`divisa_id`) REFERENCES `divisas` (`divisa_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
-  `usuario_id` int(11) NOT NULL,
-  `usuario_nombre` int(11) NOT NULL,
-  `usuario_clave` int(11) NOT NULL,
-  `rol_id` int(11) NOT NULL,
-  PRIMARY KEY (`usuario_id`),
-  KEY `FK__roles` (`rol_id`),
-  CONSTRAINT `FK__roles` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`rol_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `usuario_id` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario_nombre` varchar(64) NOT NULL DEFAULT '',
+  `usuario_clave` varchar(64) NOT NULL DEFAULT '',
+  `usuario_rol` varchar(64) NOT NULL DEFAULT '',
+  PRIMARY KEY (`usuario_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+DELIMITER //
+CREATE PROCEDURE `calcular_diario`(
+	IN `fecha` DATE
+)
+BEGIN
+SELECT divisa_id,SUM(detalles_total) total FROM 
+facturas f JOIN factura_detalles fd ON f.factura_id=fd.factura_id
+WHERE factura_fecha = fecha
+GROUP BY divisa_id;
+END//
+DELIMITER ;
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
