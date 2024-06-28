@@ -1,9 +1,16 @@
 import mariadb
+from dotenv import load_dotenv
+import os
 
 class BaseDatos:
     def __init__(self) -> None:
-        self.configuracion = {"user":"user_system","password":"0311","host":"localhost","port":3306,"database":"cafe_blum"}
-
+        load_dotenv()
+        self.configuracion = {
+            "user":os.getenv("USER"),
+            "password": os.getenv("PASSWORD"),
+            "host": os.getenv("HOST"),
+            "port": int(os.getenv("PORT")),
+            "database": os.getenv("DATABASE")}
     def conexion(self):
         conexion = mariadb.connect(**self.configuracion)
         cursor = conexion.cursor()
@@ -48,7 +55,7 @@ class Tabla:
         if id == -1:
             condicion = "TRUE"
         else:
-            condicion = f"{self.columnas_id} = {id}"
+            condicion = f"{self.columna_id} = {id}"
         return self.bd.consultar(f"SELECT * FROM {self.nombre_tabla} WHERE {condicion};")
     def insert(self,*datos):
         self.columnas.pop(0)

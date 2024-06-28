@@ -1,15 +1,16 @@
 from validaciones.validador_lines import Validador
 from conexion.tablas import TablaProductos
+from submain import MainWindow
 
 class VistaRegistrarProducto:
-    def __init__(self,ventana):
+    def __init__(self,ventana: MainWindow):
         self.ventana = ventana
         self.ui = ventana.ui
         self.ui.boton_registrar_producto.pressed.connect(self.registrar_producto)
         self.preparar()
     
     def preparar(self):
-        Validador().solo_texto(self.ui.line_nombre_producto)
+        Validador().solo_texto_productos(self.ui.line_nombre_producto)
     
     def registrar_producto(self):
         nombre = self.ui.line_nombre_producto.text()
@@ -28,7 +29,7 @@ class VistaRegistrarProducto:
         self.ventana.mostrar_mensaje("Registro Exitoso","Producto registrado correctamente")
         self.reiniciar()
         self.ui.stacked_widget.setCurrentWidget(self.ui.widget_facturar)
-        self.ventana.vista_producto.crear_widget(nombre,str(valor),self.ventana.vista_producto.categorias[categoria][0],self.ventana.vista_producto.categorias[categoria][1])
+        self.ventana.vista_producto.agregar_productos()
 
     
     def reiniciar(self):

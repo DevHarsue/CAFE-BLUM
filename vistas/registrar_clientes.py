@@ -1,8 +1,9 @@
 from validaciones.validador_lines import Validador
 from conexion.tablas import TablaClientes
+from submain import MainWindow
 
 class VistaRegistrarClientes:
-    def __init__(self,ventana) -> None:
+    def __init__(self,ventana: MainWindow) -> None:
         self.ventana = ventana
         self.ui = ventana.ui
         self.ui.boton_registrar.pressed.connect(self.registrar_clientes)

@@ -57,9 +57,11 @@ background: url(&quot;images/cafe.png&quot;);
 	color: black;
 	border-color: black;
 }
-
 #stacked_widget QWidget{
 	background: transparent;
+}
+
+#stacked_widget{
 	border: 2px solid #48e;
 	border-radius: 0.5em;
 }
@@ -123,6 +125,13 @@ CLIENTES</string>
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="QPushButton" name="pushButton">
+            <property name="text">
+             <string>CLIENTES</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
@@ -130,7 +139,21 @@ CLIENTES</string>
         <widget class="QWidget" name="widget_opciones" native="true">
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
-           <widget class="QPushButton" name="pushButton_4">
+           <widget class="QPushButton" name="boton_v_cierre">
+            <property name="text">
+             <string>CIERRE</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="boton_v_divisas">
+            <property name="text">
+             <string>DIVISAS</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="boton_v_configuracion">
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
@@ -140,7 +163,7 @@ CLIENTES</string>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_5">
+           <widget class="QPushButton" name="boton_cerrar_sesion">
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
@@ -201,14 +224,38 @@ CLIENTES</string>
          <property name="styleSheet">
           <string notr="true">QComboBox{
 min-width: 1em;
+border: 2px solid #48e;
+border-radius: 0.5em;
+
 }
 
-QLineEdit{
+QDoubleSpinBox,QSpinBox,QPushButton{
+
+	border: 2px solid #48e;
+	border-radius: 0.5em;
+}
+
+QDoubleSpinBox,QSpinBox{
+padding-right: 2em;
+}
+
+QLineEdit,QTextEdit{
 	padding: 0em 0.2em;
+
+	border: 2px solid #48e;
+	border-radius: 0.5em;
 }
 
 QLineEdit:focus,QLineEdit:hover,QComboBox:focus,QComboBox:hover,QTextEdit:focus,QTextEdit:hover,QPushButton:focus,QPushButton:hover{
 border-color: rgb(0, 255, 238);
+}
+
+QTableWidget{
+	border: 2px solid #48e;
+border-radius: 0.5em;
+}
+QTableWidget QTableWidgetItem{
+	border: 2px solid #48e;
 }</string>
          </property>
          <property name="currentIndex">
@@ -236,6 +283,73 @@ border-color: rgb(0, 255, 238);
               </widget>
              </item>
              <item>
+              <widget class="QComboBox" name="combo_categoria">
+               <item>
+                <property name="text">
+                 <string>CAFE</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/coffee.png</normaloff>../images/coffee.png</iconset>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>TE</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/te.png</normaloff>../images/te.png</iconset>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>CERVEZA</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/cerveza.png</normaloff>../images/cerveza.png</iconset>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>COMIDA</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/sandwich.png</normaloff>../images/sandwich.png</iconset>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>PASTELERIA</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/pastel.png</normaloff>../images/pastel.png</iconset>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>CHOCOLATE</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/chocolate.png</normaloff>../images/chocolate.png</iconset>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>MALTEADAS</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/batido.png</normaloff>../images/batido.png</iconset>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
               <widget class="QDoubleSpinBox" name="double_precio">
                <property name="cursor">
                 <cursorShape>PointingHandCursor</cursorShape>
@@ -243,45 +357,6 @@ border-color: rgb(0, 255, 238);
                <property name="styleSheet">
                 <string notr="true">padding-right:25px;</string>
                </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QComboBox" name="combo_categoria">
-               <item>
-                <property name="text">
-                 <string>CAFE</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>TE</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>CERVEZA</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>COMIDA</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>PASTELERIA</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>CHOCOLATE</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>MALTEADAS</string>
-                </property>
-               </item>
               </widget>
              </item>
              <item alignment="Qt::AlignmentFlag::AlignHCenter">
@@ -308,20 +383,23 @@ border-color: rgb(0, 255, 238);
           <layout class="QVBoxLayout" name="verticalLayout_4">
            <item>
             <layout class="QGridLayout" name="gridLayout_2">
-             <item row="4" column="1" colspan="2" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QPushButton" name="boton_registrar">
-               <property name="text">
-                <string>REGISTRAR</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
+             <item row="2" column="0">
               <widget class="QLineEdit" name="line_nombre">
                <property name="alignment">
                 <set>Qt::AlignmentFlag::AlignCenter</set>
                </property>
                <property name="placeholderText">
                 <string>NOMBRES</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="line_cedula">
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+               <property name="placeholderText">
+                <string>CEDULA</string>
                </property>
               </widget>
              </item>
@@ -339,17 +417,14 @@ border-color: rgb(0, 255, 238);
                </item>
               </widget>
              </item>
-             <item row="2" column="1" colspan="2" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QLineEdit" name="line_telefono">
-               <property name="alignment">
-                <set>Qt::AlignmentFlag::AlignCenter</set>
-               </property>
-               <property name="placeholderText">
-                <string>TELEFONO</string>
+             <item row="0" column="2">
+              <widget class="QPushButton" name="boton_buscar">
+               <property name="text">
+                <string>BUSCAR</string>
                </property>
               </widget>
              </item>
-             <item row="1" column="2">
+             <item row="2" column="2">
               <widget class="QLineEdit" name="line_apellido">
                <property name="alignment">
                 <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -359,23 +434,30 @@ border-color: rgb(0, 255, 238);
                </property>
               </widget>
              </item>
-             <item row="0" column="1" colspan="2" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QLineEdit" name="line_cedula">
+             <item row="3" column="0" colspan="3" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QLineEdit" name="line_telefono">
                <property name="alignment">
                 <set>Qt::AlignmentFlag::AlignCenter</set>
                </property>
                <property name="placeholderText">
-                <string>CEDULA</string>
+                <string>TELEFONO</string>
                </property>
               </widget>
              </item>
-             <item row="3" column="1" colspan="2">
+             <item row="4" column="0" colspan="3">
               <widget class="QTextEdit" name="text_direccion">
                <property name="tabChangesFocus">
                 <bool>true</bool>
                </property>
                <property name="placeholderText">
                 <string>DIRECCIÓN</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0" colspan="3" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QPushButton" name="boton_registrar">
+               <property name="text">
+                <string>REGISTRAR</string>
                </property>
               </widget>
              </item>
@@ -386,48 +468,107 @@ border-color: rgb(0, 255, 238);
          <widget class="QWidget" name="widget_facturar">
           <layout class="QVBoxLayout" name="verticalLayout_15">
            <item>
-            <layout class="QGridLayout" name="gridLayout_3">
-             <item row="2" column="0" colspan="2" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QPushButton" name="boton_buscar_producto">
+            <layout class="QGridLayout" name="gridLayout_5">
+             <item row="0" column="2" alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignBottom">
+              <widget class="QPushButton" name="boton_buscar_cliente_facturar">
                <property name="styleSheet">
-                <string notr="true">min-width: 8em;</string>
+                <string notr="true">min-width: 6em;</string>
+               </property>
+               <property name="text">
+                <string>BUSCAR</string>
+               </property>
+               <property name="icon">
+                <iconset theme="system-search"/>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0" colspan="2">
+              <widget class="QLabel" name="label_total">
+               <property name="text">
+                <string>TOTAL EN DOLARES:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QPushButton" name="boton_buscar_producto_facturar">
+               <property name="minimumSize">
+                <size>
+                 <width>140</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="text">
                 <string>BUSCAR PRODUCTO</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="0">
+             <item row="0" column="1">
               <widget class="QLineEdit" name="line_cedula_facturar">
                <property name="placeholderText">
                 <string>CEDULA</string>
                </property>
               </widget>
              </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="line_apellido_facturar">
+             <item row="3" column="0" colspan="3">
+              <widget class="QTableWidget" name="table_productos_facturar">
                <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="horizontalScrollBarPolicy">
+                <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="editTriggers">
+                <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+               </property>
+               <attribute name="horizontalHeaderCascadingSectionResizes">
                 <bool>false</bool>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignmentFlag::AlignCenter</set>
-               </property>
-               <property name="placeholderText">
-                <string>APELLIDO</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QPushButton" name="boton_buscar_cliente">
-               <property name="text">
-                <string>BUSCAR CLIENTE</string>
-               </property>
+               </attribute>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>110</number>
+               </attribute>
+               <attribute name="horizontalHeaderStretchLastSection">
+                <bool>true</bool>
+               </attribute>
+               <attribute name="verticalHeaderVisible">
+                <bool>false</bool>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string>ID</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>PRODUCTO</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>PRECIO</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>CANTIDAD</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>SUBTOTAL</string>
+                </property>
+               </column>
               </widget>
              </item>
              <item row="1" column="0">
               <widget class="QLineEdit" name="line_nombre_facturar">
                <property name="enabled">
                 <bool>false</bool>
+               </property>
+               <property name="text">
+                <string/>
                </property>
                <property name="alignment">
                 <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -437,18 +578,433 @@ border-color: rgb(0, 255, 238);
                </property>
               </widget>
              </item>
-             <item row="3" column="0" colspan="2">
-              <widget class="QListWidget" name="list_productos"/>
-             </item>
-             <item row="4" column="0" colspan="2" alignment="Qt::AlignmentFlag::AlignHCenter">
+             <item row="8" column="1">
               <widget class="QPushButton" name="boton_facturar">
-               <property name="styleSheet">
-                <string notr="true">min-width: 8em;</string>
+               <property name="minimumSize">
+                <size>
+                 <width>140</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="text">
                 <string>FACTURAR</string>
                </property>
               </widget>
+             </item>
+             <item row="7" column="0" colspan="3">
+              <layout class="QGridLayout" name="gridLayout_6">
+               <item row="1" column="4">
+                <widget class="QLabel" name="label_cop_facturar">
+                 <property name="text">
+                  <string>Valor COP:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLabel" name="label_dolar">
+                 <property name="cursor">
+                  <cursorShape>PointingHandCursor</cursorShape>
+                 </property>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_dolar_facturar">
+                 <property name="text">
+                  <string>Valor $:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLabel" name="label_bs_facturar">
+                 <property name="text">
+                  <string>Valor BS:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" colspan="2">
+                <widget class="QDoubleSpinBox" name="double_dolares_facturar">
+                 <property name="maximum">
+                  <double>999999999.990000009536743</double>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3">
+                <widget class="QLabel" name="label_bs">
+                 <property name="cursor">
+                  <cursorShape>PointingHandCursor</cursorShape>
+                 </property>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="5">
+                <widget class="QLabel" name="label_cop">
+                 <property name="cursor">
+                  <cursorShape>PointingHandCursor</cursorShape>
+                 </property>
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2" colspan="2">
+                <widget class="QDoubleSpinBox" name="double_bs_facturar">
+                 <property name="maximum">
+                  <double>999999999.990000009536743</double>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="4" colspan="2">
+                <widget class="QSpinBox" name="spin_cop_facturar">
+                 <property name="minimum">
+                  <number>0</number>
+                 </property>
+                 <property name="maximum">
+                  <number>999999999</number>
+                 </property>
+                 <property name="singleStep">
+                  <number>1000</number>
+                 </property>
+                 <property name="displayIntegerBase">
+                  <number>10</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item row="1" column="2">
+              <widget class="QLineEdit" name="line_apellido_facturar">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+               <property name="placeholderText">
+                <string>APELLIDO</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QComboBox" name="combo_nacionalidad_facturar">
+               <item>
+                <property name="text">
+                 <string>V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>E</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="label_total_iva">
+               <property name="text">
+                <string>TOTAL + IVA:</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="widget_editar_clientes">
+          <layout class="QVBoxLayout" name="verticalLayout_8">
+           <item>
+            <layout class="QGridLayout" name="gridLayout_3">
+             <item row="4" column="0" colspan="3">
+              <widget class="QTextEdit" name="text_direccion_actualizar">
+               <property name="tabChangesFocus">
+                <bool>true</bool>
+               </property>
+               <property name="placeholderText">
+                <string>DIRECCIÓN</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="line_cedula_actualizar">
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+               <property name="placeholderText">
+                <string>CEDULA</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0" colspan="3" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QLineEdit" name="line_telefono_actualizar">
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+               <property name="placeholderText">
+                <string>TELEFONO</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLineEdit" name="line_nombre_actualizar">
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+               <property name="placeholderText">
+                <string>NOMBRES</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QComboBox" name="nacionalidad_actualizar">
+               <item>
+                <property name="text">
+                 <string>V</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>E</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QPushButton" name="boton_buscar_actualizar">
+               <property name="text">
+                <string>BUSCAR</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="2">
+              <widget class="QLineEdit" name="line_apellido_actualizar">
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+               <property name="placeholderText">
+                <string>APELLIDOS</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <widget class="QPushButton" name="boton_actualizar">
+               <property name="styleSheet">
+                <string notr="true">min-width: 6em;</string>
+               </property>
+               <property name="text">
+                <string>ACTUALIZAR</string>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="1">
+              <widget class="QPushButton" name="boton_borrar">
+               <property name="text">
+                <string>BORRAR</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="widget_cierre_diario">
+          <layout class="QVBoxLayout" name="verticalLayout_10">
+           <item>
+            <layout class="QGridLayout" name="gridLayout_8">
+             <item row="1" column="1">
+              <widget class="QPushButton" name="boton_buscar_cierre">
+               <property name="text">
+                <string>BUSCAR</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_6">
+               <property name="text">
+                <string>TOTAL BS:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_5">
+               <property name="text">
+                <string>TOTAL COP:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLabel" name="label_cierre_bs">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLabel" name="label_cierre_dolar">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0" colspan="2" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QLabel" name="label_9">
+               <property name="styleSheet">
+                <string notr="true">font-size: 28px;</string>
+               </property>
+               <property name="text">
+                <string>Cierre Diario</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLabel" name="label_cierre_cop">
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0" colspan="2" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QPushButton" name="boton_cierre">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">min-width: 8em;</string>
+               </property>
+               <property name="text">
+                <string>REALIZAR CIERRE</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_8">
+               <property name="text">
+                <string>TOTAL $:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QDateEdit" name="date_cierre">
+               <property name="styleSheet">
+                <string notr="true">border: 2px solid #48e;
+border-radius: 0.5em;</string>
+               </property>
+               <property name="dateTime">
+                <datetime>
+                 <hour>0</hour>
+                 <minute>0</minute>
+                 <second>11</second>
+                 <year>2000</year>
+                 <month>1</month>
+                 <day>1</day>
+                </datetime>
+               </property>
+               <property name="calendarPopup">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="0" colspan="2" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QPushButton" name="boton_cierre_2">
+               <property name="styleSheet">
+                <string notr="true">min-width: 8em;</string>
+               </property>
+               <property name="text">
+                <string>REHACER CIERRE</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="widget_divisas">
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <layout class="QGridLayout" name="gridLayout_7">
+             <property name="topMargin">
+              <number>16</number>
+             </property>
+             <property name="bottomMargin">
+              <number>16</number>
+             </property>
+             <property name="verticalSpacing">
+              <number>14</number>
+             </property>
+             <item row="1" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QComboBox" name="combo_divisa_adivisa">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">min-width: 8em;</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>BOLIVAR</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>COP</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="0" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QLabel" name="label_2">
+               <property name="styleSheet">
+                <string notr="true">font-size: 22px;</string>
+               </property>
+               <property name="text">
+                <string>ACTUALIZAR DIVISAS</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QPushButton" name="boton_actualizar_adivisa">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">min-width: 6em;</string>
+               </property>
+               <property name="text">
+                <string>ACTUALIZAR</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+              <widget class="QDoubleSpinBox" name="double_valor_adivisa">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="maximum">
+                <double>9999999999.000000000000000</double>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <spacer name="verticalSpacer_4">
+               <property name="orientation">
+                <enum>Qt::Orientation::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
              </item>
             </layout>
            </item>
@@ -459,7 +1015,7 @@ border-color: rgb(0, 255, 238);
            <item>
             <layout class="QVBoxLayout" name="verticalLayout_9">
              <item>
-              <widget class="QLineEdit" name="lineEdit">
+              <widget class="QLineEdit" name="line_nombre_eproducto">
                <property name="alignment">
                 <set>Qt::AlignmentFlag::AlignCenter</set>
                </property>
@@ -469,58 +1025,97 @@ border-color: rgb(0, 255, 238);
               </widget>
              </item>
              <item>
-              <widget class="QTextEdit" name="textEdit">
+              <widget class="QTextEdit" name="text_descripcion_eproducto">
                <property name="placeholderText">
                 <string>DESCRIPCION PRODUCTO</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
-             </item>
-             <item>
-              <widget class="QComboBox" name="comboBox_3">
+              <widget class="QComboBox" name="combo_eproducto">
                <item>
                 <property name="text">
                  <string>CAFE</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/coffee.png</normaloff>../images/coffee.png</iconset>
                 </property>
                </item>
                <item>
                 <property name="text">
                  <string>TE</string>
                 </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/te.png</normaloff>../images/te.png</iconset>
+                </property>
                </item>
                <item>
                 <property name="text">
                  <string>CERVEZA</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/cerveza.png</normaloff>../images/cerveza.png</iconset>
                 </property>
                </item>
                <item>
                 <property name="text">
                  <string>COMIDA</string>
                 </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/sandwich.png</normaloff>../images/sandwich.png</iconset>
+                </property>
                </item>
                <item>
                 <property name="text">
                  <string>PASTELERIA</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/pastel.png</normaloff>../images/pastel.png</iconset>
                 </property>
                </item>
                <item>
                 <property name="text">
                  <string>CHOCOLATE</string>
                 </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/chocolate.png</normaloff>../images/chocolate.png</iconset>
+                </property>
                </item>
                <item>
                 <property name="text">
                  <string>MALTEADAS</string>
                 </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/batido.png</normaloff>../images/batido.png</iconset>
+                </property>
                </item>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_3">
+              <widget class="QDoubleSpinBox" name="double_precio_eproducto">
+               <property name="maximum">
+                <double>9999999999.989999771118164</double>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="boton_actualizar_eproducto">
                <property name="text">
                 <string>ACTUALIZAR</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="boton_borrar_eproducto">
+               <property name="text">
+                <string>BORRAR PRODUCTO</string>
                </property>
               </widget>
              </item>
@@ -530,301 +1125,175 @@ border-color: rgb(0, 255, 238);
          </widget>
          <widget class="QWidget" name="widget_productos">
           <property name="styleSheet">
-           <string notr="true">#scroll_principal,#scroll_widget{
-	border:none;
-}
-</string>
+           <string notr="true"/>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_7">
            <item>
-            <widget class="QScrollArea" name="scroll_principal">
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="widgetResizable">
-              <bool>true</bool>
-             </property>
-             <widget class="QWidget" name="scroll_widget">
-              <property name="geometry">
-               <rect>
-                <x>0</x>
-                <y>0</y>
-                <width>559</width>
-                <height>1524</height>
-               </rect>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">#scroll_cafe,#scroll_te,#scroll_cerveza,#scroll_chocolate,#scroll_comida,#scroll_malteada,#scroll_pasteleria{
-	border:none;
-	min-height: 210px;
-}
-QFrame{
-	border: none;
-}</string>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_6">
+            <layout class="QGridLayout" name="gridLayout_4">
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="line_nombre_bproducto">
+               <property name="placeholderText">
+                <string>NOMBRE PRODUCTO</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QComboBox" name="combo_bproducto">
+               <property name="styleSheet">
+                <string notr="true">min-width:4em;</string>
+               </property>
                <item>
-                <widget class="QScrollArea" name="scroll_cafe">
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="baseSize">
-                  <size>
-                   <width>0</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true"/>
-                 </property>
-                 <property name="verticalScrollBarPolicy">
-                  <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
-                 </property>
-                 <property name="widgetResizable">
-                  <bool>true</bool>
-                 </property>
-                 <widget class="QWidget" name="scrollAreaWidgetContents_2">
-                  <property name="geometry">
-                   <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>541</width>
-                    <height>210</height>
-                   </rect>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true"/>
-                  </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_7">
-                   <property name="leftMargin">
-                    <number>9</number>
-                   </property>
-                   <item>
-                    <widget class="QTableWidget" name="tableWidget">
-                     <property name="showGrid">
-                      <bool>false</bool>
-                     </property>
-                     <attribute name="horizontalHeaderVisible">
-                      <bool>false</bool>
-                     </attribute>
-                     <attribute name="horizontalHeaderMinimumSectionSize">
-                      <number>80</number>
-                     </attribute>
-                     <attribute name="horizontalHeaderDefaultSectionSize">
-                      <number>100</number>
-                     </attribute>
-                     <attribute name="horizontalHeaderStretchLastSection">
-                      <bool>false</bool>
-                     </attribute>
-                     <attribute name="verticalHeaderVisible">
-                      <bool>false</bool>
-                     </attribute>
-                     <row>
-                      <property name="text">
-                       <string>New Row</string>
-                      </property>
-                     </row>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </widget>
+                <property name="text">
+                 <string>TODO</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/alll.png</normaloff>../images/alll.png</iconset>
+                </property>
                </item>
                <item>
-                <widget class="QScrollArea" name="scroll_te">
-                 <property name="verticalScrollBarPolicy">
-                  <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
-                 </property>
-                 <property name="widgetResizable">
-                  <bool>true</bool>
-                 </property>
-                 <widget class="QWidget" name="scrollAreaWidgetContents_3">
-                  <property name="geometry">
-                   <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>541</width>
-                    <height>210</height>
-                   </rect>
-                  </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_6">
-                   <item alignment="Qt::AlignmentFlag::AlignLeft">
-                    <widget class="QFrame" name="te">
-                     <property name="styleSheet">
-                      <string notr="true"/>
-                     </property>
-                     <layout class="QHBoxLayout" name="layout_te"/>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </widget>
+                <property name="text">
+                 <string>CAFE</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/coffee.png</normaloff>../images/coffee.png</iconset>
+                </property>
                </item>
                <item>
-                <widget class="QScrollArea" name="scroll_malteada">
-                 <property name="verticalScrollBarPolicy">
-                  <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
-                 </property>
-                 <property name="widgetResizable">
-                  <bool>true</bool>
-                 </property>
-                 <widget class="QWidget" name="scrollAreaWidgetContents_8">
-                  <property name="geometry">
-                   <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>541</width>
-                    <height>210</height>
-                   </rect>
-                  </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_5">
-                   <item alignment="Qt::AlignmentFlag::AlignLeft">
-                    <widget class="QFrame" name="malteada">
-                     <property name="styleSheet">
-                      <string notr="true"/>
-                     </property>
-                     <layout class="QHBoxLayout" name="layout_malteada"/>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </widget>
+                <property name="text">
+                 <string>TE</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/te.png</normaloff>../images/te.png</iconset>
+                </property>
                </item>
                <item>
-                <widget class="QScrollArea" name="scroll_cerveza">
-                 <property name="verticalScrollBarPolicy">
-                  <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
-                 </property>
-                 <property name="widgetResizable">
-                  <bool>true</bool>
-                 </property>
-                 <widget class="QWidget" name="scrollAreaWidgetContents_7">
-                  <property name="geometry">
-                   <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>541</width>
-                    <height>210</height>
-                   </rect>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true"/>
-                  </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_4">
-                   <item alignment="Qt::AlignmentFlag::AlignLeft">
-                    <widget class="QFrame" name="cerveza">
-                     <property name="styleSheet">
-                      <string notr="true"/>
-                     </property>
-                     <layout class="QHBoxLayout" name="layout_cerveza"/>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </widget>
+                <property name="text">
+                 <string>CERVEZA</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/cerveza.png</normaloff>../images/cerveza.png</iconset>
+                </property>
                </item>
                <item>
-                <widget class="QScrollArea" name="scroll_pasteleria">
-                 <property name="verticalScrollBarPolicy">
-                  <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
-                 </property>
-                 <property name="widgetResizable">
-                  <bool>true</bool>
-                 </property>
-                 <widget class="QWidget" name="scrollAreaWidgetContents_6">
-                  <property name="geometry">
-                   <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>541</width>
-                    <height>210</height>
-                   </rect>
-                  </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_3">
-                   <item alignment="Qt::AlignmentFlag::AlignLeft">
-                    <widget class="QFrame" name="pasteleria">
-                     <property name="styleSheet">
-                      <string notr="true"/>
-                     </property>
-                     <layout class="QHBoxLayout" name="layout_pasteleria"/>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </widget>
+                <property name="text">
+                 <string>COMIDA</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/sandwich.png</normaloff>../images/sandwich.png</iconset>
+                </property>
                </item>
                <item>
-                <widget class="QScrollArea" name="scroll_chocolate">
-                 <property name="verticalScrollBarPolicy">
-                  <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
-                 </property>
-                 <property name="widgetResizable">
-                  <bool>true</bool>
-                 </property>
-                 <widget class="QWidget" name="scrollAreaWidgetContents_4">
-                  <property name="geometry">
-                   <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>541</width>
-                    <height>210</height>
-                   </rect>
-                  </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_8">
-                   <item alignment="Qt::AlignmentFlag::AlignLeft">
-                    <widget class="QFrame" name="chocolate">
-                     <property name="styleSheet">
-                      <string notr="true"/>
-                     </property>
-                     <layout class="QHBoxLayout" name="layout_chocolate"/>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </widget>
+                <property name="text">
+                 <string>PASTELERIA</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/pastel.png</normaloff>../images/pastel.png</iconset>
+                </property>
                </item>
                <item>
-                <widget class="QScrollArea" name="scroll_comida">
-                 <property name="verticalScrollBarPolicy">
-                  <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
-                 </property>
-                 <property name="widgetResizable">
-                  <bool>true</bool>
-                 </property>
-                 <widget class="QWidget" name="scrollAreaWidgetContents_5">
-                  <property name="geometry">
-                   <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>541</width>
-                    <height>210</height>
-                   </rect>
-                  </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_9">
-                   <item alignment="Qt::AlignmentFlag::AlignLeft">
-                    <widget class="QFrame" name="comida">
-                     <property name="styleSheet">
-                      <string notr="true"/>
-                     </property>
-                     <layout class="QHBoxLayout" name="layout_comida"/>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </widget>
+                <property name="text">
+                 <string>CHOCOLATE</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/chocolate.png</normaloff>../images/chocolate.png</iconset>
+                </property>
                </item>
-              </layout>
-             </widget>
-            </widget>
+               <item>
+                <property name="text">
+                 <string>MALTEADAS</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/batido.png</normaloff>../images/batido.png</iconset>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="1" column="0" colspan="2">
+              <widget class="QTableWidget" name="table_productos">
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="horizontalScrollBarPolicy">
+                <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="editTriggers">
+                <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+               </property>
+               <property name="selectionBehavior">
+                <enum>QAbstractItemView::SelectionBehavior::SelectItems</enum>
+               </property>
+               <property name="showGrid">
+                <bool>false</bool>
+               </property>
+               <property name="cornerButtonEnabled">
+                <bool>true</bool>
+               </property>
+               <property name="rowCount">
+                <number>0</number>
+               </property>
+               <attribute name="horizontalHeaderVisible">
+                <bool>true</bool>
+               </attribute>
+               <attribute name="horizontalHeaderCascadingSectionResizes">
+                <bool>false</bool>
+               </attribute>
+               <attribute name="horizontalHeaderMinimumSectionSize">
+                <number>61</number>
+               </attribute>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>100</number>
+               </attribute>
+               <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+                <bool>false</bool>
+               </attribute>
+               <attribute name="horizontalHeaderStretchLastSection">
+                <bool>true</bool>
+               </attribute>
+               <attribute name="verticalHeaderVisible">
+                <bool>false</bool>
+               </attribute>
+               <attribute name="verticalHeaderCascadingSectionResizes">
+                <bool>false</bool>
+               </attribute>
+               <attribute name="verticalHeaderHighlightSections">
+                <bool>true</bool>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string>ID</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>PRODUCTO</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>DESCRIPCION</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>PRECIO</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>CATEGORIA</string>
+                </property>
+               </column>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>
@@ -839,15 +1308,11 @@ QFrame{
  <tabstops>
   <tabstop>boton_v_facturar</tabstop>
   <tabstop>boton_v_productos</tabstop>
-  <tabstop>nacionalidad</tabstop>
-  <tabstop>line_cedula</tabstop>
   <tabstop>line_nombre</tabstop>
-  <tabstop>line_apellido</tabstop>
   <tabstop>line_telefono</tabstop>
   <tabstop>text_direccion</tabstop>
   <tabstop>boton_registrar</tabstop>
-  <tabstop>pushButton_4</tabstop>
-  <tabstop>pushButton_5</tabstop>
+  <tabstop>boton_cerrar_sesion</tabstop>
  </tabstops>
  <resources/>
  <connections/>
