@@ -31,8 +31,7 @@ class Login(QMainWindow):
                 self.close()
                 self.ventana_configurar_usuarios = VentanaUsuarios(self)
                 self.ventana_configurar_usuarios.show()
-        self.ventana = MainWindow(self)
-        self.vistas_ventana()
+            
         
     
     def iniciar(self):
@@ -44,6 +43,8 @@ class Login(QMainWindow):
         usuario = usuario[0]
         if usuario[2]==texto_a_hash(self.ui.lineEdit_2.text()):
             self.close()
+            self.ventana = MainWindow(self)
+            self.vistas_ventana()
             self.ventana.show()
         else:
             self.ventana.mostrar_mensaje("Usuario Incorrecto","Contraseña Incorrecta")
