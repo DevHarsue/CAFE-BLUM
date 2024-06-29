@@ -44,6 +44,8 @@ class VistaProductos:
             self.dialogo = NumberInputDialog(self)
             self.dialogo.show()
             return 0
+        if self.ventana.rol =="USUARIO":
+            return 0
         self.ventana.preguntar("EDITAR PRODUCTO","¿Desea editar productos?")
         if not self.ventana.respuesta:
             return 0

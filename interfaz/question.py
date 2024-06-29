@@ -22,10 +22,10 @@ class Ui_Question(object):
     def setupUi(self, Question):
         if not Question.objectName():
             Question.setObjectName(u"Question")
-        Question.resize(370, 79)
+        Question.resize(370, 80)
         Question.setMaximumSize(QSize(370, 80))
         icon = QIcon()
-        icon.addFile(u"../../CODIGOS/FRIKIZONE/CODIGO/images/zone.ico", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u"images/redondo_white.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         Question.setWindowIcon(icon)
         Question.setStyleSheet(u"*{\n"
 "	font-family: Agency FB;\n"

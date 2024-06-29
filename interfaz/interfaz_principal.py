@@ -28,6 +28,9 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(800, 600)
         MainWindow.setMinimumSize(QSize(800, 600))
+        icon = QIcon()
+        icon.addFile(u"images/redondo_white.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet(u"*{\n"
 "	font-family: Agency FB;\n"
 "	font-weight: bold;\n"
@@ -90,12 +93,14 @@ class Ui_MainWindow(object):
         self.boton_v_facturar = QPushButton(self.widget_menu)
         self.boton_v_facturar.setObjectName(u"boton_v_facturar")
         self.boton_v_facturar.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.boton_v_facturar.setTabletTracking(False)
 
         self.verticalLayout_2.addWidget(self.boton_v_facturar)
 
         self.boton_v_productos = QPushButton(self.widget_menu)
         self.boton_v_productos.setObjectName(u"boton_v_productos")
         self.boton_v_productos.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.boton_v_productos.setTabletTracking(False)
 
         self.verticalLayout_2.addWidget(self.boton_v_productos)
 
@@ -116,10 +121,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addWidget(self.boton_v_editar_clientes)
 
-        self.pushButton = QPushButton(self.widget_menu)
-        self.pushButton.setObjectName(u"pushButton")
+        self.boton_v_editar_facturas = QPushButton(self.widget_menu)
+        self.boton_v_editar_facturas.setObjectName(u"boton_v_editar_facturas")
 
-        self.verticalLayout_2.addWidget(self.pushButton)
+        self.verticalLayout_2.addWidget(self.boton_v_editar_facturas)
 
 
         self.gridLayout.addWidget(self.widget_menu, 1, 0, 1, 1, Qt.AlignmentFlag.AlignTop)
@@ -226,31 +231,32 @@ class Ui_MainWindow(object):
 
         self.text_descripcion = QTextEdit(self.widget_registrar_producto)
         self.text_descripcion.setObjectName(u"text_descripcion")
+        self.text_descripcion.setTabChangesFocus(True)
 
         self.verticalLayout.addWidget(self.text_descripcion)
 
         self.combo_categoria = QComboBox(self.widget_registrar_producto)
-        icon = QIcon()
-        icon.addFile(u"images/coffee.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.combo_categoria.addItem(icon, "")
         icon1 = QIcon()
-        icon1.addFile(u"images/te.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon1.addFile(u"images/coffee.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.combo_categoria.addItem(icon1, "")
         icon2 = QIcon()
-        icon2.addFile(u"images/cerveza.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon2.addFile(u"images/te.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.combo_categoria.addItem(icon2, "")
         icon3 = QIcon()
-        icon3.addFile(u"images/sandwich.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon3.addFile(u"images/cerveza.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.combo_categoria.addItem(icon3, "")
         icon4 = QIcon()
-        icon4.addFile(u"images/pastel.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon4.addFile(u"images/sandwich.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.combo_categoria.addItem(icon4, "")
         icon5 = QIcon()
-        icon5.addFile(u"images/chocolate.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon5.addFile(u"images/pastel.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.combo_categoria.addItem(icon5, "")
         icon6 = QIcon()
-        icon6.addFile(u"images/batido.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon6.addFile(u"images/chocolate.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.combo_categoria.addItem(icon6, "")
+        icon7 = QIcon()
+        icon7.addFile(u"images/batido.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.combo_categoria.addItem(icon7, "")
         self.combo_categoria.setObjectName(u"combo_categoria")
 
         self.verticalLayout.addWidget(self.combo_categoria)
@@ -340,8 +346,6 @@ class Ui_MainWindow(object):
         self.boton_buscar_cliente_facturar = QPushButton(self.widget_facturar)
         self.boton_buscar_cliente_facturar.setObjectName(u"boton_buscar_cliente_facturar")
         self.boton_buscar_cliente_facturar.setStyleSheet(u"min-width: 6em;")
-        icon7 = QIcon(QIcon.fromTheme(u"system-search"))
-        self.boton_buscar_cliente_facturar.setIcon(icon7)
 
         self.gridLayout_5.addWidget(self.boton_buscar_cliente_facturar, 0, 2, 1, 1, Qt.AlignmentFlag.AlignHCenter|Qt.AlignmentFlag.AlignBottom)
 
@@ -603,16 +607,17 @@ class Ui_MainWindow(object):
         self.date_cierre.setObjectName(u"date_cierre")
         self.date_cierre.setStyleSheet(u"border: 2px solid #48e;\n"
 "border-radius: 0.5em;")
-        self.date_cierre.setDateTime(QDateTime(QDate(2000, 1, 1), QTime(0, 0, 11)))
+        self.date_cierre.setDateTime(QDateTime(QDate(2000, 1, 1), QTime(8, 0, 11)))
         self.date_cierre.setCalendarPopup(False)
 
         self.gridLayout_8.addWidget(self.date_cierre, 1, 0, 1, 1)
 
-        self.boton_cierre_2 = QPushButton(self.widget_cierre_diario)
-        self.boton_cierre_2.setObjectName(u"boton_cierre_2")
-        self.boton_cierre_2.setStyleSheet(u"min-width: 8em;")
+        self.boton_rehacer = QPushButton(self.widget_cierre_diario)
+        self.boton_rehacer.setObjectName(u"boton_rehacer")
+        self.boton_rehacer.setEnabled(False)
+        self.boton_rehacer.setStyleSheet(u"min-width: 8em;")
 
-        self.gridLayout_8.addWidget(self.boton_cierre_2, 6, 0, 1, 2, Qt.AlignmentFlag.AlignHCenter)
+        self.gridLayout_8.addWidget(self.boton_rehacer, 6, 0, 1, 2, Qt.AlignmentFlag.AlignHCenter)
 
 
         self.verticalLayout_10.addLayout(self.gridLayout_8)
@@ -663,6 +668,142 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.addLayout(self.gridLayout_7)
 
         self.stacked_widget.addWidget(self.widget_divisas)
+        self.widget_configuracion = QWidget()
+        self.widget_configuracion.setObjectName(u"widget_configuracion")
+        self.widget_configuracion.setStyleSheet(u"min-width: 8em;")
+        self.gridLayout_9 = QGridLayout(self.widget_configuracion)
+        self.gridLayout_9.setObjectName(u"gridLayout_9")
+        self.boton_registrar_usuarios = QPushButton(self.widget_configuracion)
+        self.boton_registrar_usuarios.setObjectName(u"boton_registrar_usuarios")
+
+        self.gridLayout_9.addWidget(self.boton_registrar_usuarios, 2, 1, 1, 1)
+
+        self.boton_configurar_bd = QPushButton(self.widget_configuracion)
+        self.boton_configurar_bd.setObjectName(u"boton_configurar_bd")
+
+        self.gridLayout_9.addWidget(self.boton_configurar_bd, 1, 1, 1, 1)
+
+        self.boton_actualizar_usuarios = QPushButton(self.widget_configuracion)
+        self.boton_actualizar_usuarios.setObjectName(u"boton_actualizar_usuarios")
+
+        self.gridLayout_9.addWidget(self.boton_actualizar_usuarios, 3, 1, 1, 1)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout_9.addItem(self.verticalSpacer, 4, 1, 1, 1)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_9.addItem(self.horizontalSpacer, 2, 2, 1, 1)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout_9.addItem(self.verticalSpacer_2, 0, 1, 1, 1)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_9.addItem(self.horizontalSpacer_2, 2, 0, 1, 1)
+
+        self.stacked_widget.addWidget(self.widget_configuracion)
+        self.widget_actualizar_usuarios = QWidget()
+        self.widget_actualizar_usuarios.setObjectName(u"widget_actualizar_usuarios")
+        self.verticalLayout_11 = QVBoxLayout(self.widget_actualizar_usuarios)
+        self.verticalLayout_11.setSpacing(6)
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+        self.gridLayout_10 = QGridLayout()
+        self.gridLayout_10.setObjectName(u"gridLayout_10")
+        self.line_contrasena_usuario = QLineEdit(self.widget_actualizar_usuarios)
+        self.line_contrasena_usuario.setObjectName(u"line_contrasena_usuario")
+        self.line_contrasena_usuario.setEnabled(False)
+        self.line_contrasena_usuario.setEchoMode(QLineEdit.EchoMode.Password)
+        self.line_contrasena_usuario.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.gridLayout_10.addWidget(self.line_contrasena_usuario, 1, 1, 1, 2)
+
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_10.addItem(self.horizontalSpacer_3, 1, 0, 1, 1)
+
+        self.line_actualizar_usuario = QLineEdit(self.widget_actualizar_usuarios)
+        self.line_actualizar_usuario.setObjectName(u"line_actualizar_usuario")
+        self.line_actualizar_usuario.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.gridLayout_10.addWidget(self.line_actualizar_usuario, 0, 1, 1, 1)
+
+        self.boton_buscar_actualizar_usuario = QPushButton(self.widget_actualizar_usuarios)
+        self.boton_buscar_actualizar_usuario.setObjectName(u"boton_buscar_actualizar_usuario")
+        self.boton_buscar_actualizar_usuario.setStyleSheet(u"min-width:5em;")
+
+        self.gridLayout_10.addWidget(self.boton_buscar_actualizar_usuario, 0, 2, 1, 1)
+
+        self.boton_actulizar_usuario = QPushButton(self.widget_actualizar_usuarios)
+        self.boton_actulizar_usuario.setObjectName(u"boton_actulizar_usuario")
+        self.boton_actulizar_usuario.setEnabled(False)
+
+        self.gridLayout_10.addWidget(self.boton_actulizar_usuario, 3, 1, 1, 2)
+
+        self.line_confirmar_usuario = QLineEdit(self.widget_actualizar_usuarios)
+        self.line_confirmar_usuario.setObjectName(u"line_confirmar_usuario")
+        self.line_confirmar_usuario.setEnabled(False)
+        self.line_confirmar_usuario.setEchoMode(QLineEdit.EchoMode.Password)
+        self.line_confirmar_usuario.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.gridLayout_10.addWidget(self.line_confirmar_usuario, 2, 1, 1, 2)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout_10.addItem(self.horizontalSpacer_4, 0, 3, 1, 1)
+
+
+        self.verticalLayout_11.addLayout(self.gridLayout_10)
+
+        self.stacked_widget.addWidget(self.widget_actualizar_usuarios)
+        self.widget_editar_facturas = QWidget()
+        self.widget_editar_facturas.setObjectName(u"widget_editar_facturas")
+        self.verticalLayout_12 = QVBoxLayout(self.widget_editar_facturas)
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.gridLayout_12 = QGridLayout()
+        self.gridLayout_12.setObjectName(u"gridLayout_12")
+        self.date_factura = QDateEdit(self.widget_editar_facturas)
+        self.date_factura.setObjectName(u"date_factura")
+
+        self.gridLayout_12.addWidget(self.date_factura, 0, 0, 1, 1)
+
+        self.boton_buscar_factura = QPushButton(self.widget_editar_facturas)
+        self.boton_buscar_factura.setObjectName(u"boton_buscar_factura")
+
+        self.gridLayout_12.addWidget(self.boton_buscar_factura, 0, 1, 1, 1)
+
+        self.table_facturas = QTableWidget(self.widget_editar_facturas)
+        if (self.table_facturas.columnCount() < 6):
+            self.table_facturas.setColumnCount(6)
+        __qtablewidgetitem5 = QTableWidgetItem()
+        self.table_facturas.setHorizontalHeaderItem(0, __qtablewidgetitem5)
+        __qtablewidgetitem6 = QTableWidgetItem()
+        self.table_facturas.setHorizontalHeaderItem(1, __qtablewidgetitem6)
+        __qtablewidgetitem7 = QTableWidgetItem()
+        self.table_facturas.setHorizontalHeaderItem(2, __qtablewidgetitem7)
+        __qtablewidgetitem8 = QTableWidgetItem()
+        self.table_facturas.setHorizontalHeaderItem(3, __qtablewidgetitem8)
+        __qtablewidgetitem9 = QTableWidgetItem()
+        self.table_facturas.setHorizontalHeaderItem(4, __qtablewidgetitem9)
+        __qtablewidgetitem10 = QTableWidgetItem()
+        self.table_facturas.setHorizontalHeaderItem(5, __qtablewidgetitem10)
+        self.table_facturas.setObjectName(u"table_facturas")
+        self.table_facturas.setEnabled(True)
+        self.table_facturas.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.table_facturas.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
+        self.table_facturas.horizontalHeader().setCascadingSectionResizes(False)
+        self.table_facturas.horizontalHeader().setDefaultSectionSize(86)
+        self.table_facturas.horizontalHeader().setStretchLastSection(True)
+        self.table_facturas.verticalHeader().setVisible(False)
+
+        self.gridLayout_12.addWidget(self.table_facturas, 1, 0, 1, 2)
+
+
+        self.verticalLayout_12.addLayout(self.gridLayout_12)
+
+        self.stacked_widget.addWidget(self.widget_editar_facturas)
         self.widget_actualizar_productos = QWidget()
         self.widget_actualizar_productos.setObjectName(u"widget_actualizar_productos")
         self.verticalLayout_16 = QVBoxLayout(self.widget_actualizar_productos)
@@ -677,17 +818,19 @@ class Ui_MainWindow(object):
 
         self.text_descripcion_eproducto = QTextEdit(self.widget_actualizar_productos)
         self.text_descripcion_eproducto.setObjectName(u"text_descripcion_eproducto")
+        self.text_descripcion_eproducto.setTabletTracking(False)
+        self.text_descripcion_eproducto.setTabChangesFocus(True)
 
         self.verticalLayout_9.addWidget(self.text_descripcion_eproducto)
 
         self.combo_eproducto = QComboBox(self.widget_actualizar_productos)
-        self.combo_eproducto.addItem(icon, "")
         self.combo_eproducto.addItem(icon1, "")
         self.combo_eproducto.addItem(icon2, "")
         self.combo_eproducto.addItem(icon3, "")
         self.combo_eproducto.addItem(icon4, "")
         self.combo_eproducto.addItem(icon5, "")
         self.combo_eproducto.addItem(icon6, "")
+        self.combo_eproducto.addItem(icon7, "")
         self.combo_eproducto.setObjectName(u"combo_eproducto")
 
         self.verticalLayout_9.addWidget(self.combo_eproducto)
@@ -728,13 +871,13 @@ class Ui_MainWindow(object):
         icon8 = QIcon()
         icon8.addFile(u"images/alll.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.combo_bproducto.addItem(icon8, "")
-        self.combo_bproducto.addItem(icon, "")
         self.combo_bproducto.addItem(icon1, "")
         self.combo_bproducto.addItem(icon2, "")
         self.combo_bproducto.addItem(icon3, "")
         self.combo_bproducto.addItem(icon4, "")
         self.combo_bproducto.addItem(icon5, "")
         self.combo_bproducto.addItem(icon6, "")
+        self.combo_bproducto.addItem(icon7, "")
         self.combo_bproducto.setObjectName(u"combo_bproducto")
         self.combo_bproducto.setStyleSheet(u"min-width:4em;")
 
@@ -743,16 +886,16 @@ class Ui_MainWindow(object):
         self.table_productos = QTableWidget(self.widget_productos)
         if (self.table_productos.columnCount() < 5):
             self.table_productos.setColumnCount(5)
-        __qtablewidgetitem5 = QTableWidgetItem()
-        self.table_productos.setHorizontalHeaderItem(0, __qtablewidgetitem5)
-        __qtablewidgetitem6 = QTableWidgetItem()
-        self.table_productos.setHorizontalHeaderItem(1, __qtablewidgetitem6)
-        __qtablewidgetitem7 = QTableWidgetItem()
-        self.table_productos.setHorizontalHeaderItem(2, __qtablewidgetitem7)
-        __qtablewidgetitem8 = QTableWidgetItem()
-        self.table_productos.setHorizontalHeaderItem(3, __qtablewidgetitem8)
-        __qtablewidgetitem9 = QTableWidgetItem()
-        self.table_productos.setHorizontalHeaderItem(4, __qtablewidgetitem9)
+        __qtablewidgetitem11 = QTableWidgetItem()
+        self.table_productos.setHorizontalHeaderItem(0, __qtablewidgetitem11)
+        __qtablewidgetitem12 = QTableWidgetItem()
+        self.table_productos.setHorizontalHeaderItem(1, __qtablewidgetitem12)
+        __qtablewidgetitem13 = QTableWidgetItem()
+        self.table_productos.setHorizontalHeaderItem(2, __qtablewidgetitem13)
+        __qtablewidgetitem14 = QTableWidgetItem()
+        self.table_productos.setHorizontalHeaderItem(3, __qtablewidgetitem14)
+        __qtablewidgetitem15 = QTableWidgetItem()
+        self.table_productos.setHorizontalHeaderItem(4, __qtablewidgetitem15)
         self.table_productos.setObjectName(u"table_productos")
         self.table_productos.setStyleSheet(u"")
         self.table_productos.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
@@ -785,22 +928,85 @@ class Ui_MainWindow(object):
 
         MainWindow.setCentralWidget(self.centralwidget)
         QWidget.setTabOrder(self.boton_v_facturar, self.boton_v_productos)
-        QWidget.setTabOrder(self.boton_v_productos, self.line_nombre)
-        QWidget.setTabOrder(self.line_nombre, self.line_telefono)
+        QWidget.setTabOrder(self.boton_v_productos, self.boton_v_registrar_cliente)
+        QWidget.setTabOrder(self.boton_v_registrar_cliente, self.boton_v_registrar_producto)
+        QWidget.setTabOrder(self.boton_v_registrar_producto, self.boton_v_editar_clientes)
+        QWidget.setTabOrder(self.boton_v_editar_clientes, self.boton_v_editar_facturas)
+        QWidget.setTabOrder(self.boton_v_editar_facturas, self.boton_v_cierre)
+        QWidget.setTabOrder(self.boton_v_cierre, self.boton_v_divisas)
+        QWidget.setTabOrder(self.boton_v_divisas, self.boton_v_configuracion)
+        QWidget.setTabOrder(self.boton_v_configuracion, self.boton_cerrar_sesion)
+        QWidget.setTabOrder(self.boton_cerrar_sesion, self.line_nombre_eproducto)
+        QWidget.setTabOrder(self.line_nombre_eproducto, self.text_descripcion_eproducto)
+        QWidget.setTabOrder(self.text_descripcion_eproducto, self.combo_eproducto)
+        QWidget.setTabOrder(self.combo_eproducto, self.double_precio_eproducto)
+        QWidget.setTabOrder(self.double_precio_eproducto, self.boton_actualizar_eproducto)
+        QWidget.setTabOrder(self.boton_actualizar_eproducto, self.boton_borrar_eproducto)
+        QWidget.setTabOrder(self.boton_borrar_eproducto, self.line_actualizar_usuario)
+        QWidget.setTabOrder(self.line_actualizar_usuario, self.boton_buscar_actualizar_usuario)
+        QWidget.setTabOrder(self.boton_buscar_actualizar_usuario, self.line_contrasena_usuario)
+        QWidget.setTabOrder(self.line_contrasena_usuario, self.line_confirmar_usuario)
+        QWidget.setTabOrder(self.line_confirmar_usuario, self.boton_actulizar_usuario)
+        QWidget.setTabOrder(self.boton_actulizar_usuario, self.date_cierre)
+        QWidget.setTabOrder(self.date_cierre, self.boton_buscar_cierre)
+        QWidget.setTabOrder(self.boton_buscar_cierre, self.boton_cierre)
+        QWidget.setTabOrder(self.boton_cierre, self.boton_rehacer)
+        QWidget.setTabOrder(self.boton_rehacer, self.boton_configurar_bd)
+        QWidget.setTabOrder(self.boton_configurar_bd, self.boton_registrar_usuarios)
+        QWidget.setTabOrder(self.boton_registrar_usuarios, self.boton_actualizar_usuarios)
+        QWidget.setTabOrder(self.boton_actualizar_usuarios, self.combo_divisa_adivisa)
+        QWidget.setTabOrder(self.combo_divisa_adivisa, self.double_valor_adivisa)
+        QWidget.setTabOrder(self.double_valor_adivisa, self.boton_actualizar_adivisa)
+        QWidget.setTabOrder(self.boton_actualizar_adivisa, self.nacionalidad_actualizar)
+        QWidget.setTabOrder(self.nacionalidad_actualizar, self.line_cedula_actualizar)
+        QWidget.setTabOrder(self.line_cedula_actualizar, self.boton_buscar_actualizar)
+        QWidget.setTabOrder(self.boton_buscar_actualizar, self.line_nombre_actualizar)
+        QWidget.setTabOrder(self.line_nombre_actualizar, self.line_apellido_actualizar)
+        QWidget.setTabOrder(self.line_apellido_actualizar, self.line_telefono_actualizar)
+        QWidget.setTabOrder(self.line_telefono_actualizar, self.text_direccion_actualizar)
+        QWidget.setTabOrder(self.text_direccion_actualizar, self.boton_actualizar)
+        QWidget.setTabOrder(self.boton_actualizar, self.boton_borrar)
+        QWidget.setTabOrder(self.boton_borrar, self.combo_nacionalidad_facturar)
+        QWidget.setTabOrder(self.combo_nacionalidad_facturar, self.line_cedula_facturar)
+        QWidget.setTabOrder(self.line_cedula_facturar, self.boton_buscar_cliente_facturar)
+        QWidget.setTabOrder(self.boton_buscar_cliente_facturar, self.line_nombre_facturar)
+        QWidget.setTabOrder(self.line_nombre_facturar, self.line_apellido_facturar)
+        QWidget.setTabOrder(self.line_apellido_facturar, self.boton_buscar_producto_facturar)
+        QWidget.setTabOrder(self.boton_buscar_producto_facturar, self.table_productos_facturar)
+        QWidget.setTabOrder(self.table_productos_facturar, self.double_dolares_facturar)
+        QWidget.setTabOrder(self.double_dolares_facturar, self.double_bs_facturar)
+        QWidget.setTabOrder(self.double_bs_facturar, self.spin_cop_facturar)
+        QWidget.setTabOrder(self.spin_cop_facturar, self.boton_facturar)
+        QWidget.setTabOrder(self.boton_facturar, self.combo_bproducto)
+        QWidget.setTabOrder(self.combo_bproducto, self.line_nombre_bproducto)
+        QWidget.setTabOrder(self.line_nombre_bproducto, self.table_productos)
+        QWidget.setTabOrder(self.table_productos, self.nacionalidad)
+        QWidget.setTabOrder(self.nacionalidad, self.line_cedula)
+        QWidget.setTabOrder(self.line_cedula, self.boton_buscar)
+        QWidget.setTabOrder(self.boton_buscar, self.line_nombre)
+        QWidget.setTabOrder(self.line_nombre, self.line_apellido)
+        QWidget.setTabOrder(self.line_apellido, self.line_telefono)
         QWidget.setTabOrder(self.line_telefono, self.text_direccion)
         QWidget.setTabOrder(self.text_direccion, self.boton_registrar)
-        QWidget.setTabOrder(self.boton_registrar, self.boton_cerrar_sesion)
+        QWidget.setTabOrder(self.boton_registrar, self.line_nombre_producto)
+        QWidget.setTabOrder(self.line_nombre_producto, self.text_descripcion)
+        QWidget.setTabOrder(self.text_descripcion, self.combo_categoria)
+        QWidget.setTabOrder(self.combo_categoria, self.double_precio)
+        QWidget.setTabOrder(self.double_precio, self.boton_registrar_producto)
+        QWidget.setTabOrder(self.boton_registrar_producto, self.date_factura)
+        QWidget.setTabOrder(self.date_factura, self.boton_buscar_factura)
+        QWidget.setTabOrder(self.boton_buscar_factura, self.table_facturas)
 
         self.retranslateUi(MainWindow)
 
-        self.stacked_widget.setCurrentIndex(4)
+        self.stacked_widget.setCurrentIndex(9)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"CAFE BLUM", None))
         self.boton_v_facturar.setText(QCoreApplication.translate("MainWindow", u"FACTURAR", None))
         self.boton_v_productos.setText(QCoreApplication.translate("MainWindow", u"PRODUCTOS", None))
         self.boton_v_registrar_cliente.setText(QCoreApplication.translate("MainWindow", u"REGISTRAR\n"
@@ -809,7 +1015,8 @@ class Ui_MainWindow(object):
 "PRODUCTOS", None))
         self.boton_v_editar_clientes.setText(QCoreApplication.translate("MainWindow", u"EDITAR\n"
 "CLIENTES", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"CLIENTES", None))
+        self.boton_v_editar_facturas.setText(QCoreApplication.translate("MainWindow", u"VER\n"
+"FACTURAS", None))
         self.boton_v_cierre.setText(QCoreApplication.translate("MainWindow", u"CIERRE", None))
         self.boton_v_divisas.setText(QCoreApplication.translate("MainWindow", u"DIVISAS", None))
         self.boton_v_configuracion.setText(QCoreApplication.translate("MainWindow", u"CONFIGURACI\u00d3N", None))
@@ -886,12 +1093,33 @@ class Ui_MainWindow(object):
         self.label_cierre_cop.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.boton_cierre.setText(QCoreApplication.translate("MainWindow", u"REALIZAR CIERRE", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"TOTAL $:", None))
-        self.boton_cierre_2.setText(QCoreApplication.translate("MainWindow", u"REHACER CIERRE", None))
+        self.boton_rehacer.setText(QCoreApplication.translate("MainWindow", u"REHACER CIERRE", None))
         self.combo_divisa_adivisa.setItemText(0, QCoreApplication.translate("MainWindow", u"BOLIVAR", None))
         self.combo_divisa_adivisa.setItemText(1, QCoreApplication.translate("MainWindow", u"COP", None))
 
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"ACTUALIZAR DIVISAS", None))
         self.boton_actualizar_adivisa.setText(QCoreApplication.translate("MainWindow", u"ACTUALIZAR", None))
+        self.boton_registrar_usuarios.setText(QCoreApplication.translate("MainWindow", u"REGISTRAR USUARIOS", None))
+        self.boton_configurar_bd.setText(QCoreApplication.translate("MainWindow", u"CONFIGURAR BASE DE DATOS", None))
+        self.boton_actualizar_usuarios.setText(QCoreApplication.translate("MainWindow", u"ACTUALIZAR USUARIOS", None))
+        self.line_contrasena_usuario.setPlaceholderText(QCoreApplication.translate("MainWindow", u"CONTRASE\u00d1A", None))
+        self.line_actualizar_usuario.setPlaceholderText(QCoreApplication.translate("MainWindow", u"USUARIO", None))
+        self.boton_buscar_actualizar_usuario.setText(QCoreApplication.translate("MainWindow", u"BUSCAR", None))
+        self.boton_actulizar_usuario.setText(QCoreApplication.translate("MainWindow", u"ACTULIZAR", None))
+        self.line_confirmar_usuario.setPlaceholderText(QCoreApplication.translate("MainWindow", u"CONFIRMAR CONTRASE\u00d1A", None))
+        self.boton_buscar_factura.setText(QCoreApplication.translate("MainWindow", u"BUSCAR", None))
+        ___qtablewidgetitem5 = self.table_facturas.horizontalHeaderItem(0)
+        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"ID", None));
+        ___qtablewidgetitem6 = self.table_facturas.horizontalHeaderItem(1)
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"CEDULA", None));
+        ___qtablewidgetitem7 = self.table_facturas.horizontalHeaderItem(2)
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"NOMBRE", None));
+        ___qtablewidgetitem8 = self.table_facturas.horizontalHeaderItem(3)
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"TOTAL BS", None));
+        ___qtablewidgetitem9 = self.table_facturas.horizontalHeaderItem(4)
+        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"TOTAL $", None));
+        ___qtablewidgetitem10 = self.table_facturas.horizontalHeaderItem(5)
+        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"TOTAL COP", None));
         self.line_nombre_eproducto.setPlaceholderText(QCoreApplication.translate("MainWindow", u"NOMBRE", None))
         self.text_descripcion_eproducto.setPlaceholderText(QCoreApplication.translate("MainWindow", u"DESCRIPCION PRODUCTO", None))
         self.combo_eproducto.setItemText(0, QCoreApplication.translate("MainWindow", u"CAFE", None))
@@ -914,15 +1142,15 @@ class Ui_MainWindow(object):
         self.combo_bproducto.setItemText(6, QCoreApplication.translate("MainWindow", u"CHOCOLATE", None))
         self.combo_bproducto.setItemText(7, QCoreApplication.translate("MainWindow", u"MALTEADAS", None))
 
-        ___qtablewidgetitem5 = self.table_productos.horizontalHeaderItem(0)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"ID", None));
-        ___qtablewidgetitem6 = self.table_productos.horizontalHeaderItem(1)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"PRODUCTO", None));
-        ___qtablewidgetitem7 = self.table_productos.horizontalHeaderItem(2)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"DESCRIPCION", None));
-        ___qtablewidgetitem8 = self.table_productos.horizontalHeaderItem(3)
-        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"PRECIO", None));
-        ___qtablewidgetitem9 = self.table_productos.horizontalHeaderItem(4)
-        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"CATEGORIA", None));
+        ___qtablewidgetitem11 = self.table_productos.horizontalHeaderItem(0)
+        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"ID", None));
+        ___qtablewidgetitem12 = self.table_productos.horizontalHeaderItem(1)
+        ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"PRODUCTO", None));
+        ___qtablewidgetitem13 = self.table_productos.horizontalHeaderItem(2)
+        ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"DESCRIPCION", None));
+        ___qtablewidgetitem14 = self.table_productos.horizontalHeaderItem(3)
+        ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"PRECIO", None));
+        ___qtablewidgetitem15 = self.table_productos.horizontalHeaderItem(4)
+        ___qtablewidgetitem15.setText(QCoreApplication.translate("MainWindow", u"CATEGORIA", None));
     # retranslateUi
 

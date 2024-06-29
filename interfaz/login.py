@@ -25,6 +25,9 @@ class Ui_Login(object):
             Login.setObjectName(u"Login")
         Login.resize(800, 600)
         Login.setMinimumSize(QSize(800, 600))
+        icon = QIcon()
+        icon.addFile(u"images/redondo_white.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        Login.setWindowIcon(icon)
         Login.setStyleSheet(u"*{\n"
 "	font-family: Agency FB;\n"
 "	font-weight: bold;\n"

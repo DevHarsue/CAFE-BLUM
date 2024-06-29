@@ -3,6 +3,7 @@ from conexion.tablas import TablaClientes,TablaDivisas,TablaFacturas,TablaDetall
 from PySide6.QtWidgets import QTableWidgetItem
 from submain import MainWindow
 from utilidades import obtener_fecha
+from PDF.factura import FacturaPDF
 import os
 import webbrowser
 
@@ -88,15 +89,15 @@ class VistaFacturar:
         tabla.insert(str(venta[0]),"3",str(self.ui.double_dolares_facturar.value()))
         
         self.ventana.mostrar_mensaje("Factura exitosa","Facturacion realizada exitosamente")
-        # pdf = FacturaPDF(venta.id,obtener_fecha(),f"{self.cliente.nombre} {self.cliente.apellido}",self.cliente.telefono,self.cliente.direccion,imprimir,self.total,self.ui.double_dolares_facturar.value(),self.ui.double_bs_facturar.value(),self.ui.spin_cop_facturar.value())
-        # documentos_path = str(os.path.expanduser("~\\Documents"))
-        # try:
-        #     os.makedirs(documentos_path+"\\FRIKIZONE")
-        # except FileExistsError:
-        #     pass
-        # path = f"{documentos_path}\\FRIKIZONE\\factura_{venta.id}_{self.cliente.nombre}.pdf"
-        # pdf.output(path)
-        # webbrowser.open_new(path)
+        pdf = FacturaPDF(venta[0],obtener_fecha(),f"{self.cliente[3]} {self.cliente[4]}",self.cliente[5],self.cliente[6],imprimir,self.total,self.total_sin_iva,self.ui.double_dolares_facturar.value(),self.ui.double_bs_facturar.value(),self.ui.spin_cop_facturar.value())
+        documentos_path = str(os.path.expanduser("~\\Documents"))
+        try:
+            os.makedirs(documentos_path+"\\BLUM")
+        except FileExistsError:
+            pass
+        path = f"{documentos_path}\\BLUM\\factura_{venta[0]}_{self.cliente[3]}.pdf"
+        pdf.output(path)
+        webbrowser.open_new(path)
         
         self.reiniciar_cliente()
         self.reiniciar_productos()
@@ -132,8 +133,9 @@ class VistaFacturar:
         for x in range(row):
             self.total +=float(self.ui.table_productos_facturar.item(x,4).text())
         
+        self.total_sin_iva=self.total
         self.ui.label_total.setText("TOTAL EN DOLARES: "+str(self.total))
-        self.total = self.total+(self.total*0.16)
+        self.total = round(self.total+(self.total*0.16),2)
         self.ui.label_total_iva.setText("TOTAL + IVA: "+str(self.total))
         self.ui.label_dolar.setText(str(self.total))
         self.ui.label_bs.setText(str(self.total*self.tasa_bolivares))

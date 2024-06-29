@@ -25,6 +25,9 @@ class Ui_Register(object):
             Register.setObjectName(u"Register")
         Register.resize(800, 600)
         Register.setMinimumSize(QSize(800, 600))
+        icon = QIcon()
+        icon.addFile(u"images/redondo_white.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        Register.setWindowIcon(icon)
         Register.setStyleSheet(u"*{\n"
 "	font-family: Agency FB;\n"
 "	font-weight: bold;\n"
@@ -162,6 +165,7 @@ class Ui_Register(object):
 
         self.pushButton_2 = QPushButton(self.contenedor_principal)
         self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setEnabled(True)
         self.pushButton_2.setStyleSheet(u"min-width: 8em;")
 
         self.gridLayout_2.addWidget(self.pushButton_2, 2, 2, 1, 1, Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignBottom)
@@ -170,8 +174,10 @@ class Ui_Register(object):
         self.verticalLayout_3.addWidget(self.contenedor_principal)
 
         Register.setCentralWidget(self.centralwidget)
+        QWidget.setTabOrder(self.comboBox, self.lineEdit)
         QWidget.setTabOrder(self.lineEdit, self.lineEdit_2)
-        QWidget.setTabOrder(self.lineEdit_2, self.pushButton)
+        QWidget.setTabOrder(self.lineEdit_2, self.lineEdit_3)
+        QWidget.setTabOrder(self.lineEdit_3, self.pushButton)
         QWidget.setTabOrder(self.pushButton, self.pushButton_2)
 
         self.retranslateUi(Register)
@@ -190,6 +196,6 @@ class Ui_Register(object):
         self.comboBox.setItemText(1, QCoreApplication.translate("Register", u"ADMIN", None))
         self.comboBox.setItemText(2, QCoreApplication.translate("Register", u"USUARIO", None))
 
-        self.pushButton_2.setText(QCoreApplication.translate("Register", u"SALIR", None))
+        self.pushButton_2.setText(QCoreApplication.translate("Register", u"VOLVER", None))
     # retranslateUi
 

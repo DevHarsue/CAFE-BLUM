@@ -17,7 +17,11 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>CAFE BLUM</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../images/redondo_white.png</normaloff>../images/redondo_white.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">*{
@@ -80,6 +84,9 @@ background: url(&quot;images/cafe.png&quot;);
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
             </property>
+            <property name="tabletTracking">
+             <bool>false</bool>
+            </property>
             <property name="text">
              <string>FACTURAR</string>
             </property>
@@ -89,6 +96,9 @@ background: url(&quot;images/cafe.png&quot;);
            <widget class="QPushButton" name="boton_v_productos">
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="tabletTracking">
+             <bool>false</bool>
             </property>
             <property name="text">
              <string>PRODUCTOS</string>
@@ -126,9 +136,10 @@ CLIENTES</string>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="boton_v_editar_facturas">
             <property name="text">
-             <string>CLIENTES</string>
+             <string>VER
+FACTURAS</string>
             </property>
            </widget>
           </item>
@@ -259,7 +270,7 @@ QTableWidget QTableWidgetItem{
 }</string>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>9</number>
          </property>
          <widget class="QWidget" name="widget_registrar_producto">
           <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -277,6 +288,9 @@ QTableWidget QTableWidgetItem{
              </item>
              <item>
               <widget class="QTextEdit" name="text_descripcion">
+               <property name="tabChangesFocus">
+                <bool>true</bool>
+               </property>
                <property name="placeholderText">
                 <string>DESCRIPCION</string>
                </property>
@@ -476,9 +490,6 @@ QTableWidget QTableWidgetItem{
                </property>
                <property name="text">
                 <string>BUSCAR</string>
-               </property>
-               <property name="icon">
-                <iconset theme="system-search"/>
                </property>
               </widget>
              </item>
@@ -900,7 +911,7 @@ border-radius: 0.5em;</string>
                </property>
                <property name="dateTime">
                 <datetime>
-                 <hour>0</hour>
+                 <hour>8</hour>
                  <minute>0</minute>
                  <second>11</second>
                  <year>2000</year>
@@ -914,7 +925,10 @@ border-radius: 0.5em;</string>
               </widget>
              </item>
              <item row="6" column="0" colspan="2" alignment="Qt::AlignmentFlag::AlignHCenter">
-              <widget class="QPushButton" name="boton_cierre_2">
+              <widget class="QPushButton" name="boton_rehacer">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
                <property name="styleSheet">
                 <string notr="true">min-width: 8em;</string>
                </property>
@@ -1010,6 +1024,258 @@ border-radius: 0.5em;</string>
            </item>
           </layout>
          </widget>
+         <widget class="QWidget" name="widget_configuracion">
+          <property name="styleSheet">
+           <string notr="true">min-width: 8em;</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_9">
+           <item row="2" column="1">
+            <widget class="QPushButton" name="boton_registrar_usuarios">
+             <property name="text">
+              <string>REGISTRAR USUARIOS</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QPushButton" name="boton_configurar_bd">
+             <property name="text">
+              <string>CONFIGURAR BASE DE DATOS</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QPushButton" name="boton_actualizar_usuarios">
+             <property name="text">
+              <string>ACTUALIZAR USUARIOS</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="2">
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="1">
+            <spacer name="verticalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="0">
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="widget_actualizar_usuarios">
+          <layout class="QVBoxLayout" name="verticalLayout_11">
+           <property name="spacing">
+            <number>6</number>
+           </property>
+           <item>
+            <layout class="QGridLayout" name="gridLayout_10">
+             <item row="1" column="1" colspan="2">
+              <widget class="QLineEdit" name="line_contrasena_usuario">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="echoMode">
+                <enum>QLineEdit::EchoMode::Password</enum>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+               <property name="placeholderText">
+                <string>CONTRASEÑA</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <spacer name="horizontalSpacer_3">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="line_actualizar_usuario">
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+               <property name="placeholderText">
+                <string>USUARIO</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QPushButton" name="boton_buscar_actualizar_usuario">
+               <property name="styleSheet">
+                <string notr="true">min-width:5em;</string>
+               </property>
+               <property name="text">
+                <string>BUSCAR</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1" colspan="2">
+              <widget class="QPushButton" name="boton_actulizar_usuario">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>ACTULIZAR</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1" colspan="2">
+              <widget class="QLineEdit" name="line_confirmar_usuario">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="echoMode">
+                <enum>QLineEdit::EchoMode::Password</enum>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+               <property name="placeholderText">
+                <string>CONFIRMAR CONTRASEÑA</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="3">
+              <spacer name="horizontalSpacer_4">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="widget_editar_facturas">
+          <layout class="QVBoxLayout" name="verticalLayout_12">
+           <item>
+            <layout class="QGridLayout" name="gridLayout_12">
+             <item row="0" column="0">
+              <widget class="QDateEdit" name="date_factura"/>
+             </item>
+             <item row="0" column="1">
+              <widget class="QPushButton" name="boton_buscar_factura">
+               <property name="text">
+                <string>BUSCAR</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0" colspan="2">
+              <widget class="QTableWidget" name="table_facturas">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="horizontalScrollBarPolicy">
+                <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="editTriggers">
+                <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+               </property>
+               <attribute name="horizontalHeaderCascadingSectionResizes">
+                <bool>false</bool>
+               </attribute>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>86</number>
+               </attribute>
+               <attribute name="horizontalHeaderStretchLastSection">
+                <bool>true</bool>
+               </attribute>
+               <attribute name="verticalHeaderVisible">
+                <bool>false</bool>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string>ID</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>CEDULA</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>NOMBRE</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>TOTAL BS</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>TOTAL $</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
+                 <string>TOTAL COP</string>
+                </property>
+               </column>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
          <widget class="QWidget" name="widget_actualizar_productos">
           <layout class="QVBoxLayout" name="verticalLayout_16">
            <item>
@@ -1026,6 +1292,12 @@ border-radius: 0.5em;</string>
              </item>
              <item>
               <widget class="QTextEdit" name="text_descripcion_eproducto">
+               <property name="tabletTracking">
+                <bool>false</bool>
+               </property>
+               <property name="tabChangesFocus">
+                <bool>true</bool>
+               </property>
                <property name="placeholderText">
                 <string>DESCRIPCION PRODUCTO</string>
                </property>
@@ -1308,11 +1580,74 @@ border-radius: 0.5em;</string>
  <tabstops>
   <tabstop>boton_v_facturar</tabstop>
   <tabstop>boton_v_productos</tabstop>
+  <tabstop>boton_v_registrar_cliente</tabstop>
+  <tabstop>boton_v_registrar_producto</tabstop>
+  <tabstop>boton_v_editar_clientes</tabstop>
+  <tabstop>boton_v_editar_facturas</tabstop>
+  <tabstop>boton_v_cierre</tabstop>
+  <tabstop>boton_v_divisas</tabstop>
+  <tabstop>boton_v_configuracion</tabstop>
+  <tabstop>boton_cerrar_sesion</tabstop>
+  <tabstop>line_nombre_eproducto</tabstop>
+  <tabstop>text_descripcion_eproducto</tabstop>
+  <tabstop>combo_eproducto</tabstop>
+  <tabstop>double_precio_eproducto</tabstop>
+  <tabstop>boton_actualizar_eproducto</tabstop>
+  <tabstop>boton_borrar_eproducto</tabstop>
+  <tabstop>line_actualizar_usuario</tabstop>
+  <tabstop>boton_buscar_actualizar_usuario</tabstop>
+  <tabstop>line_contrasena_usuario</tabstop>
+  <tabstop>line_confirmar_usuario</tabstop>
+  <tabstop>boton_actulizar_usuario</tabstop>
+  <tabstop>date_cierre</tabstop>
+  <tabstop>boton_buscar_cierre</tabstop>
+  <tabstop>boton_cierre</tabstop>
+  <tabstop>boton_rehacer</tabstop>
+  <tabstop>boton_configurar_bd</tabstop>
+  <tabstop>boton_registrar_usuarios</tabstop>
+  <tabstop>boton_actualizar_usuarios</tabstop>
+  <tabstop>combo_divisa_adivisa</tabstop>
+  <tabstop>double_valor_adivisa</tabstop>
+  <tabstop>boton_actualizar_adivisa</tabstop>
+  <tabstop>nacionalidad_actualizar</tabstop>
+  <tabstop>line_cedula_actualizar</tabstop>
+  <tabstop>boton_buscar_actualizar</tabstop>
+  <tabstop>line_nombre_actualizar</tabstop>
+  <tabstop>line_apellido_actualizar</tabstop>
+  <tabstop>line_telefono_actualizar</tabstop>
+  <tabstop>text_direccion_actualizar</tabstop>
+  <tabstop>boton_actualizar</tabstop>
+  <tabstop>boton_borrar</tabstop>
+  <tabstop>combo_nacionalidad_facturar</tabstop>
+  <tabstop>line_cedula_facturar</tabstop>
+  <tabstop>boton_buscar_cliente_facturar</tabstop>
+  <tabstop>line_nombre_facturar</tabstop>
+  <tabstop>line_apellido_facturar</tabstop>
+  <tabstop>boton_buscar_producto_facturar</tabstop>
+  <tabstop>table_productos_facturar</tabstop>
+  <tabstop>double_dolares_facturar</tabstop>
+  <tabstop>double_bs_facturar</tabstop>
+  <tabstop>spin_cop_facturar</tabstop>
+  <tabstop>boton_facturar</tabstop>
+  <tabstop>combo_bproducto</tabstop>
+  <tabstop>line_nombre_bproducto</tabstop>
+  <tabstop>table_productos</tabstop>
+  <tabstop>nacionalidad</tabstop>
+  <tabstop>line_cedula</tabstop>
+  <tabstop>boton_buscar</tabstop>
   <tabstop>line_nombre</tabstop>
+  <tabstop>line_apellido</tabstop>
   <tabstop>line_telefono</tabstop>
   <tabstop>text_direccion</tabstop>
   <tabstop>boton_registrar</tabstop>
-  <tabstop>boton_cerrar_sesion</tabstop>
+  <tabstop>line_nombre_producto</tabstop>
+  <tabstop>text_descripcion</tabstop>
+  <tabstop>combo_categoria</tabstop>
+  <tabstop>double_precio</tabstop>
+  <tabstop>boton_registrar_producto</tabstop>
+  <tabstop>date_factura</tabstop>
+  <tabstop>boton_buscar_factura</tabstop>
+  <tabstop>table_facturas</tabstop>
  </tabstops>
  <resources/>
  <connections/>

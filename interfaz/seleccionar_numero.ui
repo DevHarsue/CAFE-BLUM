@@ -21,7 +21,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../CODIGOS/FRIKIZONE/CODIGO/images/zone.ico</normaloff>../../CODIGOS/FRIKIZONE/CODIGO/images/zone.ico</iconset>
+    <normaloff>../images/redondo_white.png</normaloff>../images/redondo_white.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">*{

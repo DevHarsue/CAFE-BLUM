@@ -24,6 +24,9 @@ class Ui_Message(object):
             Message.setObjectName(u"Message")
         Message.resize(370, 80)
         Message.setMaximumSize(QSize(370, 80))
+        icon = QIcon()
+        icon.addFile(u"images/redondo_white.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        Message.setWindowIcon(icon)
         Message.setStyleSheet(u"*{\n"
 "	font-family: Agency FB;\n"
 "	font-weight: bold;\n"

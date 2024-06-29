@@ -26,7 +26,7 @@ class Ui_Cantidad(object):
         Cantidad.resize(370, 80)
         Cantidad.setMaximumSize(QSize(370, 80))
         icon = QIcon()
-        icon.addFile(u"../../CODIGOS/FRIKIZONE/CODIGO/images/zone.ico", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u"images/redondo_white.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         Cantidad.setWindowIcon(icon)
         Cantidad.setStyleSheet(u"*{\n"
 "	font-family: Agency FB;\n"

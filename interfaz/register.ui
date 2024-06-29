@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>Registro</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../images/redondo_white.png</normaloff>../images/redondo_white.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">*{
 	font-family: Agency FB;
@@ -224,11 +228,14 @@ border-color: rgb(0, 255, 238);
        </item>
        <item row="2" column="2" alignment="Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignBottom">
         <widget class="QPushButton" name="pushButton_2">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
          <property name="styleSheet">
           <string notr="true">min-width: 8em;</string>
          </property>
          <property name="text">
-          <string>SALIR</string>
+          <string>VOLVER</string>
          </property>
         </widget>
        </item>
@@ -239,8 +246,10 @@ border-color: rgb(0, 255, 238);
   </widget>
  </widget>
  <tabstops>
+  <tabstop>comboBox</tabstop>
   <tabstop>lineEdit</tabstop>
   <tabstop>lineEdit_2</tabstop>
+  <tabstop>lineEdit_3</tabstop>
   <tabstop>pushButton</tabstop>
   <tabstop>pushButton_2</tabstop>
  </tabstops>

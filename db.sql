@@ -21,12 +21,18 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   PRIMARY KEY (`cliente_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+
 CREATE TABLE IF NOT EXISTS `divisas` (
   `divisa_id` int(11) NOT NULL AUTO_INCREMENT,
   `divisa_nombre` varchar(20) DEFAULT NULL,
   `divisa_relacion` decimal(20,2) DEFAULT NULL,
   PRIMARY KEY (`divisa_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+INSERT INTO `divisas` (`divisa_id`, `divisa_nombre`, `divisa_relacion`) VALUES
+	(1, 'BOLIVAR', 36.00),
+	(2, 'COP', 3700.00),
+	(3, 'DOLAR', 1.00);
 
 CREATE TABLE IF NOT EXISTS `facturas` (
   `factura_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -36,6 +42,7 @@ CREATE TABLE IF NOT EXISTS `facturas` (
   KEY `FK_facturas_clientes` (`cliente_id`),
   CONSTRAINT `FK_facturas_clientes` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`cliente_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
 
 CREATE TABLE IF NOT EXISTS `factura_detalles` (
   `detalles_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -49,6 +56,7 @@ CREATE TABLE IF NOT EXISTS `factura_detalles` (
   CONSTRAINT `FK_factura_detalles_facturas` FOREIGN KEY (`factura_id`) REFERENCES `facturas` (`factura_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+
 CREATE TABLE IF NOT EXISTS `productos` (
   `producto_id` int(11) NOT NULL AUTO_INCREMENT,
   `producto_nombre` varchar(20) NOT NULL,
@@ -58,15 +66,17 @@ CREATE TABLE IF NOT EXISTS `productos` (
   PRIMARY KEY (`producto_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+
 CREATE TABLE IF NOT EXISTS `totales_diarios` (
   `total_id` int(11) NOT NULL AUTO_INCREMENT,
   `total_fecha` date NOT NULL,
   `divisa_id` int(11) NOT NULL,
-  `total_ingresado` int(11) NOT NULL,
+  `total_ingresado` decimal(20,2) NOT NULL DEFAULT 0.00,
   PRIMARY KEY (`total_id`),
   KEY `FK_totales_diaros_divisas` (`divisa_id`),
   CONSTRAINT `FK_totales_diaros_divisas` FOREIGN KEY (`divisa_id`) REFERENCES `divisas` (`divisa_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `usuario_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -75,6 +85,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `usuario_rol` varchar(64) NOT NULL DEFAULT '',
   PRIMARY KEY (`usuario_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
 
 DELIMITER //
 CREATE PROCEDURE `calcular_diario`(

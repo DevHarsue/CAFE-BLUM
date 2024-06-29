@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>LOGIN</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../images/redondo_white.png</normaloff>../images/redondo_white.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">*{
 	font-family: Agency FB;

@@ -25,6 +25,9 @@ class Ui_Configuracion(object):
             Configuracion.setObjectName(u"Configuracion")
         Configuracion.resize(800, 600)
         Configuracion.setMinimumSize(QSize(800, 600))
+        icon = QIcon()
+        icon.addFile(u"images/redondo_white.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        Configuracion.setWindowIcon(icon)
         Configuracion.setStyleSheet(u"*{\n"
 "	font-family: Agency FB;\n"
 "	font-weight: bold;\n"
@@ -168,7 +171,9 @@ class Ui_Configuracion(object):
 
         Configuracion.setCentralWidget(self.centralwidget)
         QWidget.setTabOrder(self.lineEdit, self.lineEdit_2)
-        QWidget.setTabOrder(self.lineEdit_2, self.pushButton)
+        QWidget.setTabOrder(self.lineEdit_2, self.lineEdit_3)
+        QWidget.setTabOrder(self.lineEdit_3, self.lineEdit_4)
+        QWidget.setTabOrder(self.lineEdit_4, self.pushButton)
         QWidget.setTabOrder(self.pushButton, self.pushButton_2)
 
         self.retranslateUi(Configuracion)
@@ -184,6 +189,6 @@ class Ui_Configuracion(object):
         self.lineEdit_3.setPlaceholderText(QCoreApplication.translate("Configuracion", u"HOST", None))
         self.pushButton.setText(QCoreApplication.translate("Configuracion", u"INICIAR SESI\u00d3N", None))
         self.lineEdit_4.setPlaceholderText(QCoreApplication.translate("Configuracion", u"PUERTO", None))
-        self.pushButton_2.setText(QCoreApplication.translate("Configuracion", u"SALIR", None))
+        self.pushButton_2.setText(QCoreApplication.translate("Configuracion", u"VOLVER", None))
     # retranslateUi
 

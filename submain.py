@@ -1,13 +1,12 @@
 from interfaz.interfaz_principal import Ui_MainWindow
-from interfaz.message import Ui_Message
-from interfaz.question import Ui_Question
-from PySide6.QtWidgets import QMainWindow,QMessageBox,QDialog
-from PySide6.QtCore import Signal
+from PySide6.QtWidgets import QMainWindow
+from ventanas import Mensaje,Preguntar
 
 class MainWindow(QMainWindow):
-    def __init__(self,login):
+    def __init__(self,login,rol):
         super().__init__()
         self.login = login
+        self.rol = rol
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.asignar_botones()
@@ -15,6 +14,8 @@ class MainWindow(QMainWindow):
         self.pregunta = Preguntar()
         self.pregunta.respuesta.connect(self.responder)
         self.ui.stacked_widget.setCurrentWidget(self.ui.widget_facturar)
+        self.salt = '\x9a\xedd\t\xb3\x80\xa7\xbc:\xd5\xbdW\xcc\x96\xc8\x94'
+        self.ajustar()
     
     def asignar_botones(self):
         self.ui.boton_v_facturar.pressed.connect(lambda:self.ui.stacked_widget.setCurrentWidget(self.ui.widget_facturar))
@@ -25,7 +26,8 @@ class MainWindow(QMainWindow):
         self.ui.boton_v_editar_clientes.pressed.connect(lambda: self.ui.stacked_widget.setCurrentWidget(self.ui.widget_editar_clientes))
         self.ui.boton_v_cierre.pressed.connect(lambda: self.ui.stacked_widget.setCurrentWidget(self.ui.widget_cierre_diario))
         self.ui.boton_cerrar_sesion.pressed.connect(self.cerrar)
-        # self.ui.boton_v_editar_clientes.pressed.connect(lambda:self.ui.stacked_widget.setCurrentWidget())
+        self.ui.boton_v_editar_facturas.pressed.connect(lambda:self.ui.stacked_widget.setCurrentWidget(self.ui.widget_editar_facturas))
+        self.ui.boton_v_configuracion.pressed.connect(lambda:self.ui.stacked_widget.setCurrentWidget(self.ui.widget_configuracion))
     
     def cambiar_vista_producto(self):
         self.ui.stacked_widget.setCurrentWidget(self.ui.widget_productos)
@@ -47,41 +49,14 @@ class MainWindow(QMainWindow):
         self.close()
         self.login.show()
     
-
-class Mensaje(QDialog):
-    def __init__(self):
-        super().__init__()
-        self.setModal(True)
-        self.ui = Ui_Message()
-        self.ui.setupUi(self)
-        self.ui.pushButton.pressed.connect(self.close)
-    
-    def mostrar(self,titulo,mensaje):
-        self.ui.pushButton.setDefault(True)
-        self.setWindowTitle(titulo)
-        self.ui.label.setText(mensaje)
-        self.exec_()
-
-class Preguntar(QDialog):
-    respuesta = Signal(bool)
-    def __init__(self):
-        super().__init__()
-        self.setModal(True)
-        self.ui = Ui_Question()
-        self.ui.setupUi(self)
-        self.ui.pushButton.pressed.connect(self.si)
-        self.ui.pushButton_2.pressed.connect(self.no)
-    
-    def mostrar(self,titulo,mensaje):
-        self.ui.pushButton.setDefault(True)
-        self.setWindowTitle(titulo)
-        self.ui.label.setText(mensaje)
-        self.exec_()
-    
-    def si(self):
-        self.respuesta.emit(True)
-        self.close()
-    
-    def no(self):
-        self.respuesta.emit(False)
-        self.close()
+    def ajustar(self):
+        if self.rol=="USUARIO":
+            self.ui.boton_v_registrar_producto.hide()
+            self.ui.boton_v_editar_clientes.hide()
+            self.ui.boton_v_editar_facturas.hide()
+            self.ui.boton_v_configuracion.hide()
+            self.ui.boton_rehacer.hide()
+        elif self.rol=="ADMIN":
+            self.ui.boton_configurar_bd.hide()
+        
+        self.ui.boton_v_editar_facturas.hide()

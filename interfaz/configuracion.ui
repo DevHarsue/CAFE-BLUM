@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>CONFIGURAR CONEXION CON LA BD</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../images/redondo_white.png</normaloff>../images/redondo_white.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">*{
 	font-family: Agency FB;
@@ -216,7 +220,7 @@ border-color: rgb(0, 255, 238);
           <string notr="true">min-width: 8em;</string>
          </property>
          <property name="text">
-          <string>SALIR</string>
+          <string>VOLVER</string>
          </property>
         </widget>
        </item>
@@ -229,6 +233,8 @@ border-color: rgb(0, 255, 238);
  <tabstops>
   <tabstop>lineEdit</tabstop>
   <tabstop>lineEdit_2</tabstop>
+  <tabstop>lineEdit_3</tabstop>
+  <tabstop>lineEdit_4</tabstop>
   <tabstop>pushButton</tabstop>
   <tabstop>pushButton_2</tabstop>
  </tabstops>
